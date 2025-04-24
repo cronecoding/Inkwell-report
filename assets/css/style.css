@@ -154,3 +154,49 @@ footer {
     margin: 20px auto;
   }
 }
+
+/* GLOBAL INSIGHTS Section */
+.global-insights {
+  background-color: #000;
+  color: #ffffff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.global-insights h2 {
+  font-size: 2.4rem;
+  color: var(--emerald);
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.global-insights .tagline {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #cccccc;
+  margin-bottom: 30px;
+}
+
+.global-insights .description {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+.who-link {
+  display: inline-block;
+  margin-top: 30px;
+  font-weight: bold;
+  color: var(--emerald);
+  text-decoration: none;
+  border: 2px solid var(--emerald);
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.who-link:hover {
+  background-color: var(--emerald);
+  color: #000;
+}
