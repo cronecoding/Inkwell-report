@@ -210,7 +210,7 @@ footer {
 }
 
 .team-intro h2 {
-  color: #50C878; /* Emerald green */
+  color: #8A9A5B;/*Moss green */
   font-size: 2.2rem;
   margin-bottom: 20px;
 }
@@ -234,7 +234,7 @@ footer {
 
 .team-member {
   background: #111;
-  border: 1px solid #50C878; /* Emerald green */
+  border: 1px solid #8A9A5B;/*Moss green */
   border-radius: 6px;
   padding: 30px 20px;
   width: 260px;
@@ -253,11 +253,11 @@ footer {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 15px;
-  border: 2px solid #50C878; /* Emerald green */
+  border: 2px solid #8A9A5B;/*Moss green */
 }
 
 .team-member h4 {
-  color: #50C878; /* Emerald green */
+  color: #8A9A5B;/*Moss green */
   font-size: 1.2rem;
   margin-bottom: 5px;
 }
@@ -266,4 +266,26 @@ footer {
   font-size: 0.95rem;
   color: #ddd;
   line-height: 1.4;
+}
+
+
+/* Header Layout */
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Logo and Title Container */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Logo Image */
+.logo {
+  height: 50px;
+  width: auto;
 }
