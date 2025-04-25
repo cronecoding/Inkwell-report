@@ -6,7 +6,7 @@
 }
 
 :root {
-  --emerald: #046c4e;
+  --green: #8A9A5B;
   --black: #000000;
   --white: #ffffff;
   --gray-light: #cccccc;
@@ -30,13 +30,13 @@ body {
 /* Header */
 header {
   background-color: var(--black);
-  border-bottom: 1px solid var(--emerald);
+  border-bottom: 1px solid var(--green);
   padding: 30px 20px;
   text-align: center;
 }
 
 header h1 {
-  color: var(--emerald);
+  color: var(--green);
   font-size: 2rem;
   letter-spacing: 1px;
 }
@@ -60,7 +60,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: var(--emerald);
+  color: var(--green);
 }
 
 /* Hero Section */
@@ -72,7 +72,7 @@ nav ul li a:hover {
 
 .hero h2 {
   font-size: 2.5rem;
-  color: var(--emerald);
+  color: var(--green);
   margin-bottom: 20px;
 }
 
@@ -85,7 +85,7 @@ nav ul li a:hover {
 .button {
   display: inline-block;
   padding: 12px 25px;
-  background-color: var(--emerald);
+  background-color: var(--green);
   color: var(--black);
   text-decoration: none;
   border-radius: 3px;
@@ -104,7 +104,7 @@ section {
 }
 
 section h3 {
-  color: var(--emerald);
+  color: var(--green);
   font-size: 1.8rem;
   margin-bottom: 20px;
 }
@@ -118,7 +118,7 @@ section p {
 /* Cards (for Services, Experts, etc.) */
 .card {
   background-color: #111111;
-  border: 1px solid var(--emerald);
+  border: 1px solid var(--green);
   color: var(--white);
   padding: 30px;
   margin: 20px;
@@ -126,7 +126,7 @@ section p {
 }
 
 .card h4 {
-  color: var(--emerald);
+  color: var(--green);
   margin-bottom: 10px;
 }
 
@@ -140,7 +140,7 @@ footer {
   color: var(--gray-light);
   text-align: center;
   padding: 30px 20px;
-  border-top: 1px solid var(--emerald);
+  border-top: 1px solid var(--green);
 }
 
 /* Responsive */
@@ -165,7 +165,7 @@ footer {
 
 .global-insights h2 {
   font-size: 2.4rem;
-  color: var(--emerald);
+  color: var(--green);
   margin-bottom: 15px;
   letter-spacing: 1px;
 }
@@ -188,16 +188,16 @@ footer {
   display: inline-block;
   margin-top: 30px;
   font-weight: bold;
-  color: var(--emerald);
+  color: var(--green);
   text-decoration: none;
-  border: 2px solid var(--emerald);
+  border: 2px solid var(--green);
   padding: 10px 20px;
   border-radius: 4px;
   transition: all 0.3s;
 }
 
 .who-link:hover {
-  background-color: var(--emerald);
+  background-color: var(--green);
   color: #000;
 }
 
