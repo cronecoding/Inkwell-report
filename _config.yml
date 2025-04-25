@@ -1,6 +1,6 @@
 # _config.yml
 title: Inkwell Global Report
 description: World events with data
-theme: agency 
+theme: jekyll-theme-modernist
 plugins:
   - jekyll-include-cache
