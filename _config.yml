@@ -1,5 +1,5 @@
 title: Inkwell Global Report
 description: World events with data
-theme: jekyll-theme-modernist
+remote_theme: raviriley/agency-jekyll-theme
 plugins:
-  - jekyll-include-cache
+  - jekyll-remote-theme
