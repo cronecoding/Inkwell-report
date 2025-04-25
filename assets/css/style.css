@@ -32,13 +32,34 @@ header {
   background-color: var(--black);
   border-bottom: 1px solid var(--green);
   padding: 30px 20px;
-  text-align: center;
 }
 
 header h1 {
   color: var(--green);
   font-size: 2rem;
   letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Header Layout */
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Logo and Title Container */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Logo Image */
+.logo {
+  height: 50px;
+  width: auto;
 }
 
 /* Navigation */
@@ -270,26 +291,7 @@ footer {
 }
 
 
-/* Header Layout */
-.header-flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
 
-/* Logo and Title Container */
-.logo-title {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* Logo Image */
-.logo {
-  height: 50px;
-  width: auto;
-}
 
 
 @media (max-width: 768px) {
