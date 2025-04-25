@@ -171,10 +171,11 @@ footer {
 }
 
 .global-insights .tagline {
-  font-size: 1.4rem;
-  font-weight: 300;
-  color: #cccccc;
-  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.3;
 }
 
 .global-insights .description {
@@ -288,4 +289,31 @@ footer {
 .logo {
   height: 50px;
   width: auto;
+}
+
+
+@media (max-width: 768px) {
+  .insights-layout {
+    flex-direction: column;
+  }
+
+  .insights-text, .insights-image {
+    width: 100%;
+    flex: none;
+  }
+
+  .section-title, .tagline {
+    font-size: 1.5rem;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .logo-title {
+    flex-direction: column;
+    align-items: center;
+  }
 }
