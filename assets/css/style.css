@@ -152,6 +152,7 @@ nav ul li a:hover {
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
+  margin: 5px;
 }
 
 .hero-button:hover {
