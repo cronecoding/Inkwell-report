@@ -192,7 +192,7 @@ home-hero {
 
 .team-hero {
   background-image: url('/assets/images/map.png');
-  background-size: contain;
+  background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
 }
