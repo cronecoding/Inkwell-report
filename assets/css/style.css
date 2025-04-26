@@ -278,6 +278,9 @@ footer {
   text-align: left;
   max-width: 800px;
 }
+.global-insights .container {
+  text-align: left;
+}
 
 .global-insights .tagline {
   font-size: 2rem;
