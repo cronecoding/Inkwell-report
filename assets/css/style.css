@@ -419,8 +419,9 @@ footer {
   color: #ddd;
   line-height: 1.4;
 }
-.team-member p + p {
-  margin-top: 10px; /* or 15px if you want even more space */
+.team-member p strong {
+  display: block;
+  margin-bottom: 10px;
 }
 
 /* Map Image */
@@ -444,4 +445,30 @@ footer {
 
 .linkedin-link img:hover {
   opacity: 1;
+}
+
+.profile-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 18px;
+  border: 2px solid var(--green);
+  color: var(--green);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.profile-link:hover {
+  background-color: var(--green);
+  color: var(--black);
+}
+
+.profile-photo {
+  width: 400px; /* or 220px, you can tweak */
+  height: auto;
+  border-radius: 0; /* if you want it round */
+  object-fit: cover; /* keeps it neat if needed */
+  margin-bottom: 20px;
 }
