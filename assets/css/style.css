@@ -490,3 +490,20 @@ footer {
   text-align: left;
   color: var(--gray-light);
 }
+
+/* Services Hero Section */
+.services-hero {
+  background-image: url('/assets/images/fynn-zentner-ballingrass.jpg'); /* Replace with your real filename */
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 60vh;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
