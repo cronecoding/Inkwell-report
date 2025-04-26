@@ -118,6 +118,47 @@ nav ul li a:hover {
   background-color: #3ebf6a;
 }
 
+.hero-fixed {
+  background-image: url('/assets/images/nasa_windtunnel.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 90vh;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.hero-fixed h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-tagline {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.hero-button {
+  display: inline-block;
+  background-color: var(--green);
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.hero-button:hover {
+  background-color: #004d33; /* slightly darker on hover */
+}
+
+
 /* Section Blocks */
 section {
   padding: 80px 20px;
@@ -345,3 +386,4 @@ footer {
     align-items: center;
   }
 }
+
