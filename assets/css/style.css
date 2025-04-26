@@ -482,3 +482,11 @@ footer {
   max-width: 900px;
   margin: 0 auto;
 }
+
+.profile-content p {
+  margin-bottom: 20px; /* gives breathing room between paragraphs */
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: left;
+  color: var(--gray-light);
+}
