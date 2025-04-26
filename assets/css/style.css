@@ -126,7 +126,7 @@ nav ul li a:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 90vh;
+  height: 50vh;
   color: white;
   text-align: center;
   display: flex;
@@ -173,9 +173,28 @@ home-hero {
   justify-content: center;
   align-items: center;
 }
+.hero-overlay h1 {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: floatIn 2s ease-out forwards;
+}
+
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .team-hero {
-  background-image: url('/assets/images/map.png'); 
+  background-image: url('/assets/images/map.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Section Basics */
