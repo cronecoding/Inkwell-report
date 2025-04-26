@@ -301,18 +301,20 @@ footer {
 }
 .button-group {
   display: flex;
-  justify-content: center; /* or left if you prefer */
+  justify-content: flex-start; /* or left if you prefer */
   flex-wrap: wrap; /* allows wrapping on smaller screens */
   gap: 25px; /* adds space between buttons */
   margin-top: 20px;
 
 .global-insights {
   text-align: left;
+  padding-left 20px
 }
 
 .global-insights h3,
 .global-insights p,
-.global-insights a {
+.global-insights a 
+.global-insights .button-group {
   margin-left: 0;
   text-align: left;
   max-width: 800px; /* optional: control the line length for beauty */
