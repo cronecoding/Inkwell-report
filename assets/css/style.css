@@ -29,13 +29,13 @@ body {
 
 /* Header */
 header {
-  background-color: var(--black);
-  border-bottom: 1px solid var(--green);
+  background-color: var(--green);
+  border-bottom: 1px solid var(--black);
   padding: 30px 20px;
 }
 
 header h1 {
-  color: var(--green);
+  color: var(--white);
   font-size: 2rem;
   letter-spacing: 1px;
   margin: 0;
