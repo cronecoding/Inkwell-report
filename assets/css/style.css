@@ -419,6 +419,9 @@ footer {
   color: #ddd;
   line-height: 1.4;
 }
+.team-member p + p {
+  margin-top: 10px; /* or 15px if you want even more space */
+}
 
 /* Map Image */
 .map-image {
