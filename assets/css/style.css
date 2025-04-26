@@ -539,21 +539,23 @@ footer {
 .services-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 30px;
-  margin-top: 40px;
+  justify-content: flex-start; /* Center the row of cards */
+  gap: 40px; /* Adjust spacing between cards */
+  padding: 40px 20px;
+  max-width: 1200px; /* Optional: keeps the grid from stretching too wide on big monitors */
+  margin: 0 auto; /* Center the whole grid */
 }
 
-/* Service Cards */
 .service-card {
   background-color: #111;
   border: 1px solid var(--green);
   border-radius: 8px;
   padding: 30px 20px;
-  width: 280px;
+  width: 280px; /* Fixed width per card */
   text-align: center;
-  transition: transform 0.3s ease;
   color: white;
+  transition: transform 0.3s ease;
+  flex: 1 1 280px; /* Let cards shrink a little on smaller screens */
 }
 
 .service-card:hover {
