@@ -158,10 +158,23 @@ section p {
 /* Footer */
 footer {
   background-color: var(--black);
-  color: var(--gray-light);
+  color: var(--green);
   text-align: center;
-  padding: 30px 20px;
-  border-top: 1px solid var(--green);
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+.footer-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  height: 30px;
+  width: auto;
+  margin-bottom: 10px;
 }
 
 /* Responsive */
