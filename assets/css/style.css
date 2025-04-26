@@ -507,3 +507,10 @@ footer {
   align-items: center;
   padding: 0 20px;
 }
+.service-deliverables {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+  color: var(--gray-light);
+  font-size: 0.9rem;
+}
