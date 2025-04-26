@@ -299,6 +299,13 @@ footer {
   background-color: var(--green);
   color: #000;
 }
+.button-group {
+  display: flex;
+  justify-content: center; /* or left if you prefer */
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  gap: 15px; /* adds space between buttons */
+  margin-top: 20px;
+
 .global-insights {
   text-align: left;
 }
