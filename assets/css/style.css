@@ -585,9 +585,9 @@ footer {
 
 /* Contact Hero Section */
 .contact-hero {
-  background-image: url('/assets/images/lets_talk.png'); /* <-- Replace with your photo */
+  background-image: url('/assets/images/lets_talk.png'); /* Replace this filename */
   background-attachment: fixed;
-  background-size: 90%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 60vh;
