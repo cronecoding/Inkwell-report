@@ -508,15 +508,43 @@ footer {
   padding: 0 20px;
 }
 
-/* Services Section */
+/* Services Intro Section */
+.services-intro {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 80px 20px;
+  text-align: left;
+}
+
+.services-intro h3 {
+  color: var(--green);
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}
+
+.services-intro .tagline {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.services-intro .description {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  font-size: 1.1rem;
+  color: var(--gray-light);
+}
+
+/* Services Grid */
 .services-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-  padding: 60px 20px;
+  justify-content: flex-start;
+  gap: 30px;
+  margin-top: 40px;
 }
 
+/* Service Cards */
 .service-card {
   background-color: #111;
   border: 1px solid var(--green);
@@ -533,12 +561,14 @@ footer {
   box-shadow: 0 4px 10px rgba(0, 128, 0, 0.4);
 }
 
+/* Service Icons inside Cards */
 .service-icon {
   width: 60px;
   height: 60px;
   margin-bottom: 20px;
 }
 
+/* Deliverables List inside Service Cards */
 .service-deliverables {
   list-style-type: disc;
   text-align: left;
