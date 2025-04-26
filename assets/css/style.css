@@ -122,7 +122,6 @@ nav ul li a:hover {
 
 /* Fixed Hero Image Section */
 .hero-fixed {
-  background-image: url('/assets/images/nasa_windtunnel.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -135,6 +134,9 @@ nav ul li a:hover {
   justify-content: center;
   align-items: center;
   padding: 0 20px;
+}
+home-hero {
+  background-image: url('/assets/images/nasa_windtunnel.jpg');
 }
 
 .hero-fixed h1 {
@@ -174,10 +176,6 @@ nav ul li a:hover {
 
 .team-hero {
   background-image: url('/assets/images/map.png'); 
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 /* Section Basics */
