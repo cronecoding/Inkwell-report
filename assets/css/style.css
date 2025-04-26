@@ -411,3 +411,17 @@ footer {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
+
+.linkedin-link img {
+  width: 20px;    /* much smaller */
+  height: 20px;
+  margin-left: 8px; /* small gap from text */
+  vertical-align: middle; /* aligns nicely with name text */
+  border: none;
+  border-radius: 0; /* no circle */
+  box-shadow: none; /* no line or shadow */
+}
+
+.linkedin-link img:hover {
+  opacity: 1;
+}
