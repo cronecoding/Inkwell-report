@@ -472,3 +472,13 @@ footer {
   object-fit: cover; /* keeps it neat if needed */
   margin-bottom: 20px;
 }
+
+.profile-layout {
+  text-align: left;
+  padding: 40px 20px;
+}
+
+.profile-layout .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
