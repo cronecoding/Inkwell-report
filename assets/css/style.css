@@ -565,8 +565,8 @@ footer {
 
 /* Service Icons inside Cards */
 .service-icon {
-  width: 60px;
-  height: 60px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   margin-bottom: 20px;
   border-radius: 8px;
@@ -587,7 +587,7 @@ footer {
 .contact-hero {
   background-image: url('/assets/images/lets_talk.png'); /* <-- Replace with your photo */
   background-attachment: fixed;
-  background-size: cover;
+  background-size: 90%;
   background-position: center;
   background-repeat: no-repeat;
   height: 60vh;
