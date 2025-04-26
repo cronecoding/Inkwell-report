@@ -303,7 +303,7 @@ footer {
   display: flex;
   justify-content: center; /* or left if you prefer */
   flex-wrap: wrap; /* allows wrapping on smaller screens */
-  gap: 15px; /* adds space between buttons */
+  gap: 25px; /* adds space between buttons */
   margin-top: 20px;
 
 .global-insights {
