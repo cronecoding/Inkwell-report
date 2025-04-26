@@ -507,8 +507,41 @@ footer {
   align-items: center;
   padding: 0 20px;
 }
+
+/* Services Section */
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.service-card {
+  background-color: #111;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  padding: 30px 20px;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 128, 0, 0.4);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
 .service-deliverables {
-  list-style: disc;
+  list-style-type: disc;
+  text-align: left;
   padding-left: 20px;
   margin-top: 10px;
   color: var(--gray-light);
