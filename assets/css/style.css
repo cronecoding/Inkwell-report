@@ -172,6 +172,14 @@ nav ul li a:hover {
   align-items: center;
 }
 
+.team-hero {
+  background-image: url('/assets/images/map.png'); 
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* Section Basics */
 section {
   padding: 80px 20px;
@@ -305,11 +313,27 @@ footer {
   margin-top: 20px;
 }
 
+.button-group a {
+  display: inline-block;
+  background-color: var(--green);
+  color: var(--black);
+  padding: 12px 25px;
+  text-decoration: none;
+  border: 2px solid var(--green);
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.button-group a:hover {
+  background-color: var(--black);
+  color: var(--green);
+}
 /* Team Intro */
 .team-intro {
   background-color: var(--black);
   color: var(--gray-light);
-  padding: 0 20px;
+  padding: 80px 20px;
   text-align: left;
   max-width: 800px;
   margin: 0 auto;
