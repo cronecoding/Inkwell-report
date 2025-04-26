@@ -298,6 +298,21 @@ footer {
   background-color: var(--green);
   color: #000;
 }
+.global-insights {
+  text-align: left;
+}
+
+.global-insights h3,
+.global-insights p,
+.global-insights a {
+  margin-left: 0;
+  text-align: left;
+  max-width: 800px; /* optional: control the line length for beauty */
+}
+
+.global-insights {
+  padding-left: 20px;
+}
 
 /* Team Introduction Section */
 .team-intro {
