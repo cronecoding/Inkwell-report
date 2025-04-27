@@ -297,6 +297,11 @@ footer {
     align-items: center;
   }
 
+  .services-hero {
+    background-attachment: scroll;
+    }
+  }
+
 /* Global Insights */
 .global-insights {
   background-color: var(--black);
@@ -673,5 +678,4 @@ footer {
   font-size: 1.1rem;
   color: var(--gray-light);
   margin-bottom: 20px;
-}
 }
