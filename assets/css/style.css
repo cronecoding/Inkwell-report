@@ -276,7 +276,7 @@ footer {
   .hero-fixed {
     background-attachment: scroll;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
   }
 
   /* Stack service cards vertically */
