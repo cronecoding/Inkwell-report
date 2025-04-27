@@ -297,6 +297,9 @@ footer {
     align-items: center;
   }
 
+  .hero-fixed,
+  .team-hero,
+  .contact-hero,
   .services-hero {
     background-attachment: scroll;
     }
