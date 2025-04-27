@@ -272,20 +272,30 @@ footer {
 
 /* Responsive Settings */
 @media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    gap: 15px;
+  /* Fix background behavior on mobile */
+  .hero-fixed {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
   }
 
-  .card {
-    margin: 20px auto;
+  /* Stack service cards vertically */
+  .services-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Fix nav */
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 
   .logo-title {
     flex-direction: column;
     align-items: center;
   }
-}
 
 /* Global Insights */
 .global-insights {
@@ -324,6 +334,7 @@ footer {
 
 .button-group {
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   flex-wrap: wrap;
   gap: 25px;
@@ -635,4 +646,32 @@ footer {
 
 .contact-link:hover {
   text-decoration: underline;
+}
+
+.contact-content {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 80px 20px;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-content h2 {
+  color: var(--green);
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}
+
+.contact-content .tagline {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.contact-content .description {
+  font-size: 1.1rem;
+  color: var(--gray-light);
+  margin-bottom: 20px;
+}
 }
