@@ -276,8 +276,14 @@ footer {
   .hero-fixed {
     background-attachment: scroll;
     background-size: cover;
-    background-position: center center;
+    background-position: center 
+    }
+  .services-hero {
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
   }
+}
 
   /* Stack service cards vertically */
   .services-grid {
