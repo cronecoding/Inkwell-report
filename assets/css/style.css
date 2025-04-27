@@ -272,13 +272,10 @@ footer {
 
 /* Responsive Settings */
 @media (max-width: 768px) {
-  /* Fix background behavior on mobile */
-  .hero-fixed {
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: center 
-    }
-  .services-hero {
+  .hero-fixed,
+  .services-hero,
+  .team-hero,
+  .contact-hero {
     background-attachment: scroll;
     background-position: center;
     background-size: cover;
