@@ -302,6 +302,9 @@ footer {
   .contact-hero,
   .services-hero {
     background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    height: 50vh; /* smaller height for phones */
     }
   }
 
