@@ -277,7 +277,7 @@ footer {
   .team-hero,
   .contact-hero {
     background-attachment: scroll;
-    background-position: center;
+    background-position: center center;
     background-size: cover;
   }
   .services-hero {
