@@ -280,7 +280,10 @@ footer {
     background-position: center;
     background-size: cover;
   }
-
+  .services-hero {
+    background-image: url('/assets/images/fynn-zentner-ballingrass.jpg');
+  }
+  
   /* Stack service cards vertically */
   .services-grid {
     flex-direction: column;
