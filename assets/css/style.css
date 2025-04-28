@@ -617,7 +617,6 @@ footer {
   align-items: center;
   padding: 0 20px;
 }
-
 /* Contact Intro Section */
 .contact-intro {
   background-color: var(--black);
@@ -625,19 +624,6 @@ footer {
   padding: 80px 20px;
   text-align: left;
 }
-
-.contact-intro h2 {
-  color: var(--green);
-  font-size: 2.4rem;
-  margin-bottom: 20px;
-}
-
-.contact-intro .tagline {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
 .contact-intro .description {
   max-width: 800px;
   margin: 0 auto 20px auto;
@@ -653,33 +639,4 @@ footer {
 
 .contact-link:hover {
   text-decoration: underline;
-}
-
-.contact-content {
-  background-color: var(--black);
-  color: var(--white);
-  padding: 80px 20px;
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.contact-content h2 {
-  color: var(--green);
-  font-size: 2.4rem;
-  margin-bottom: 20px;
-}
-
-.contact-content .tagline {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.contact-content .description {
-  font-size: 1.1rem;
-  color: var(--gray-light);
-  margin-bottom: 20px;
-  text-align: left;
 }
