@@ -629,6 +629,7 @@ footer {
   margin: 0 auto 20px auto;
   font-size: 1.1rem;
   color: var(--gray-light);
+  text-align: left;
 }
 
 .contact-link {
