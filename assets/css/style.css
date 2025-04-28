@@ -278,7 +278,7 @@ footer {
   .contact-hero {
     background-attachment: scroll;
     background-position: center center;
-    background-size: cover;
+    background-size: 100%;
   }
   .services-hero {
     background-image: url('/assets/images/fynn-zentner-ballingrass.jpg');
