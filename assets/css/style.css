@@ -280,11 +280,15 @@ footer {
     background-size: 100%;
   }
   .services-hero {
-    background-image: url('/assets/images/fynncropped.jpg');
+    background-image: url('/assets/images/fynncropped.jpeg');
     background-attachment: scroll; /* Change fixed to scroll for mobile */
     background-position: center;
     background-size: cover;
     height: 40vh;
+  }
+  .hero-overlay {
+    padding-top: 20px;
+    padding bottom: 20px;
   }
   
   /* Stack service cards vertically */
@@ -555,7 +559,7 @@ footer {
   color: var(--gray-light);
 }
 
-/* Services Grid */
+/* mobile Services Grid */
 .services-grid {
   display: flex;
   flex-wrap: wrap;
