@@ -280,7 +280,6 @@ footer {
     background-position: center;
     background-size: cover;
   }
-}
 
   /* Stack service cards vertically */
   .services-grid {
@@ -299,23 +298,13 @@ footer {
     flex-direction: column;
     align-items: center;
   }
-
-  .hero-fixed,
-  .team-hero,
-  .contact-hero,
-  .services-hero {
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: center;
-    height: 50vh; /* smaller height for phones */
-    }
-  }
+}
 
 /* Global Insights */
 .global-insights {
   background-color: var(--black);
   color: var(--white);
-  padding: 80px 20px;
+  padding: 100px 20px;
   text-align: left;
 }
 
@@ -518,7 +507,7 @@ footer {
 
 /* Services Hero Section */
 .services-hero {
-  background-image: url('/assets/images/fynn-zentner-ballingrass.jpg'); /* Replace with your real filename */
+  background-image: url('/assets/images/fynn-zentner-ballingrass.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
