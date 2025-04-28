@@ -680,10 +680,12 @@ footer {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .contact-content .description {
   font-size: 1.1rem;
   color: var(--gray-light);
   margin-bottom: 20px;
+  text-align: left;
 }
