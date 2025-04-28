@@ -280,9 +280,9 @@ footer {
     background-size: 100%;
   }
   .services-hero {
-    background-image: url('/assets/images/fynncropped.jpeg');
+    background-image: url('/assets/images/logo.jpg');
     background-attachment: scroll; /* Change fixed to scroll for mobile */
-    background-position: center;
+    background-position: center center;
     background-size: cover;
     height: 40vh;
   }
