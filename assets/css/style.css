@@ -273,7 +273,6 @@ footer {
 /* Responsive Settings */
 @media (max-width: 768px) {
   .hero-fixed,
-  .services-hero,
   .team-hero,
   .contact-hero {
     background-attachment: scroll;
@@ -282,6 +281,10 @@ footer {
   }
   .services-hero {
     background-image: url('/assets/images/fynncropped.jpg');
+    background-attachment: scroll; /* Change fixed to scroll for mobile */
+    background-position: center;
+    background-size: cover;
+    height: 40vh;
   }
   
   /* Stack service cards vertically */
