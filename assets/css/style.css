@@ -271,39 +271,7 @@ footer {
   text-decoration: underline;
 }
 
-/* Responsive Settings */
-@media (max-width: 768px) {
-  .hero-fixed,
-  .team-hero,
-  .service-hero,
-  .contact-hero {
-    background-attachment: scroll;
-    background-position: center center;
-    background-size: cover;
-  }
-  .hero-overlay {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  .hero h1 {
-    margin-top: 40px;
-  }
-  /* Stack service cards vertically */
-  .services-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-  /* Fix nav */
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-  .logo-title {
-    flex-direction: column;
-    align-items: center;
-  }
-}
+
 
 /* Global Insights */
 .global-insights {
@@ -641,4 +609,37 @@ footer {
 
 .contact-link:hover {
   text-decoration: underline;
+}
+/* Responsive Settings */
+@media (max-width: 768px) {
+  .hero-fixed,
+  .team-hero,
+  .service-hero,
+  .contact-hero {
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+  }
+  .hero-overlay {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .hero h1 {
+    margin-top: 40px;
+  }
+  /* Stack service cards vertically */
+  .services-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Fix nav */
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .logo-title {
+    flex-direction: column;
+    align-items: center;
+  }
 }
