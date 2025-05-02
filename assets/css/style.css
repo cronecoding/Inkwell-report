@@ -642,4 +642,9 @@ footer {
     flex-direction: column;
     align-items: center;
   }
+  .hero-fixed home.hero h1,
+  .hero-fixed home.hero tagline{
+    font-size: 0.9rem;
+    line-height: 1.2:
+  }
 }
