@@ -642,9 +642,17 @@ footer {
     flex-direction: column;
     align-items: center;
   }
-  .hero-fixed.home-hero h1,
-  .hero-fixed.home-hero .hero-tagline{
-    font-size: 0.9rem;
-    line-height: 1.2;
+  .hero-fixed.home-hero {
+    min-height: 380px; /* Increase background height */
+  }
+
+  .hero-fixed.home-hero h1 {
+    font-size: 1.5rem;  /* Was 0.9rem — now more readable */
+    line-height: 1.3;
+  }
+
+  .hero-fixed.home-hero .hero-tagline {
+    font-size: 1.1rem;  /* Increased for readability */
+    line-height: 1.4;
   }
 }
