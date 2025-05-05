@@ -39,28 +39,7 @@ header {
 }
 
 
-#for dash
-/* custom.css in /assets */
-.Select-control {
-    background-color: #1e1e1e !important;
-    color: #ffffff !important;
-    border: 1px solid #555555 !important;
-    border-radius: 5px;
-}
 
-.Select-menu-outer {
-    background-color: #2e2e2e !important;
-    color: #ffffff !important;
-}
-
-.Select-option {
-    background-color: #2e2e2e !important;
-    color: #ffffff !important;
-}
-
-.Select-option:hover {
-    background-color: #444 !important;
-}
 header h1 {
   color: var(--white);
   font-size: 2rem;
@@ -678,4 +657,54 @@ footer {
     font-size: 1.4rem;  /* Increased for readability */
     line-height: 1.5;
   }
+}
+#for dash
+/* custom.css in /assets */
+.Select-control {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border: 1px solid #555555 !important;
+    border-radius: 5px;
+}
+
+.Select-menu-outer {
+    background-color: #2e2e2e !important;
+    color: #ffffff !important;
+}
+
+.Select-option {
+    background-color: #2e2e2e !important;
+    color: #ffffff !important;
+}
+
+.Select-option:hover {
+    background-color: #444 !important;
+}
+/* Force light text for selected value (closed state) */
+.Select-control,
+.Select--single > .Select-control {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  border: 1px solid #555555 !important;
+}
+
+/* Force white text inside placeholder/selected value */
+.Select-placeholder,
+.Select-value-label {
+  color: #ffffff !important;
+}
+
+/* Customize the dropdown arrow */
+.Select-arrow-zone, .Select-arrow {
+  color: #ffffff !important;
+}
+
+/* Dropdown menu (open state) */
+.VirtualizedSelectOption {
+  background-color: #2c2c2c !important;
+  color: #ffffff !important;
+}
+
+.VirtualizedSelectOption:hover {
+  background-color: #444444 !important;
 }
