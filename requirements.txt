@@ -1,0 +1,6 @@
+dash
+pandas
+plotly
+requests
+gunicorn          # Needed for production deployment
+Jupyter           # Only if you're keeping the notebook in your repo
