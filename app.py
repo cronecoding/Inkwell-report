@@ -221,6 +221,7 @@ dataframes = [df for df in dataframes if df is not None]
 
 # Combine safely
 combined_df = pd.concat(dataframes, ignore_index=True)
+
 # ===== STEP 3: DASHBOARD IT======
 app = dash.Dash(__name__)
 app.title = "Dataset Transparency Dashboard"
@@ -234,6 +235,20 @@ app.layout = html.Div(
         'padding': '20px'
     },
     children=[
+        # === HEADER ===
+        html.Div([
+            html.Img(src="/assets/logo.jpg", style={
+                "height": "60px", "marginRight": "15px"
+            }),
+            html.H1("Inkwell Reports", style={
+                "margin": 0, "fontSize": "2rem", "color": "#FFFFFF"
+            }),
+        ], style={
+            "display": "flex",
+            "alignItems": "center",
+            "marginBottom": "30px"
+        }),
+        #=====Dashboard content====
         html.H1("🧭 Dataset Transparency Trends", style={'textAlign': 'center'}),
 
         html.Label("Select Time Window:", style={"marginTop": "10px"}),
@@ -325,8 +340,20 @@ app.layout = html.Div(
                 "padding": "5px"
             }
         ),
-
         dcc.Graph(id='monthly-agency-bar'),
+        # === FOOTER ===
+        html.Hr(style={"borderColor": "#555555", "marginTop": "40px"}),
+        html.Div([
+            html.P("Inkwell Reports © 2025 | Monitoring the erosion of public data with transparency."),
+            html.A("Return to Inkwell Homepage", href="https://inkwell.reports", target="_blank", style={
+                "color": "#4DA8DA", "textDecoration": "underline", "display": "block", "marginTop": "10px"
+            })
+        ], style={
+            "textAlign": "center",
+            "fontStyle": "italic",
+            "fontSize": "0.9rem",
+            "marginTop": "20px"
+        }
     ]
 )
 # === CALLBACK: Update Graphs Based on Month Range ===
