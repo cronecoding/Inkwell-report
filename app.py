@@ -270,7 +270,6 @@ app.layout = html.Div(
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
                 "color": "#ffffff",
-                "padding": "8px",
                 "fontWeight": "bold"
             }
         ),
@@ -316,8 +315,7 @@ app.layout = html.Div(
                 "width": "200px",
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
-                "color": "#ffffff",
-                "padding": "5px"
+                "color": "#ffffff"
             }
         ),
 
