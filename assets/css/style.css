@@ -1,11 +1,10 @@
-/* Reset */
+/* ====Remove any old style and set the color scheme==== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Variables */
 :root {
   --green: #8A9A5B;
   --black: #000000;
@@ -14,7 +13,7 @@
   --gray-dark: #1a1a1a;
 }
 
-/* Body */
+/* ===overall==== */
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: var(--black);
@@ -23,22 +22,26 @@ body {
   font-size: 16px;
   text-align:left;
 }
+small {
+  color: var(--gray-light);
+  font-size: 0.7rem;
+  display: block;
+  margin-top: 10px
+}
 
-/* Container */
+/* ===Containers=== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* Header */
+/* ===Header=== */
 header {
   background-color: var(--gray-dark);
   border-bottom: 1px solid var(--green);
   padding: 30px 20px;
 }
-
-
 
 header h1 {
   color: var(--white);
@@ -47,7 +50,6 @@ header h1 {
   margin: 0;
 }
 
-/* Header Flex */
 .header-flex {
   display: flex;
   align-items: center;
@@ -61,13 +63,12 @@ header h1 {
   gap: 15px;
 }
 
-/* Logo */
 .logo {
   height: 200px;
   width: auto;
 }
 
-/* Navigation */
+/* ====Navigation==== */
 nav ul {
   list-style: none;
   display: flex;
@@ -89,7 +90,7 @@ nav ul li a:hover {
   color: var(--green);
 }
 
-/* Hero Section */
+/* ===Hero=== */
 .hero {
   background-color: var(--black);
   padding: 100px 20px;
@@ -107,7 +108,7 @@ nav ul li a:hover {
   color: var(--gray-light);
   margin-bottom: 30px;
 }
-
+/* button1 */
 .button {
   display: inline-block;
   padding: 12px 25px;
@@ -151,7 +152,7 @@ nav ul li a:hover {
   font-size: 1.5rem;
   margin-bottom: 30px;
 }
-
+/* button2 */
 .hero-button {
   display: inline-block;
   background-color: var(--green);
@@ -200,7 +201,7 @@ nav ul li a:hover {
   background-repeat: no-repeat;
 }
 
-/* Section Basics */
+/* ===Section Basics=== */
 section {
   padding: 80px 20px;
   text-align: center;
@@ -218,7 +219,7 @@ section p {
   color: var(--gray-light);
 }
 
-/* Cards */
+/* ===Cards=== */
 .card {
   background-color: #111111;
   border: 1px solid var(--green);
@@ -237,7 +238,7 @@ section p {
   color: var(--gray-light);
 }
 
-/* Footer */
+/* ===Footer=== */
 footer {
   background-color: var(--black);
   color: var(--green);
@@ -273,9 +274,7 @@ footer {
   text-decoration: underline;
 }
 
-
-
-/* Global Insights */
+/* ===Global Insights=== */
 .global-insights {
   background-color: var(--black);
   color: var(--white);
@@ -335,7 +334,7 @@ footer {
   background-color: var(--black);
   color: var(--green);
 }
-/* Team Intro */
+/* ===Team=== */
 .team-intro {
   background-color: var(--black);
   color: var(--gray-light);
@@ -480,7 +479,7 @@ footer {
   color: var(--gray-light);
 }
 
-/* Services Hero Section */
+/* ===Services=== */
 .services-hero {
   background-image: url('/assets/images/fynn-zentner-ballingrass.jpg');
   background-attachment: fixed;
@@ -572,7 +571,7 @@ footer {
 }
 
 
-/* Contact Hero Section */
+/* ===Contact=== */
 .contact-hero {
   background-image: url('/assets/images/lets_talk.png'); /* Replace this filename */
   background-attachment: fixed;
@@ -612,7 +611,7 @@ footer {
 .contact-link:hover {
   text-decoration: underline;
 }
-/* Responsive Settings */
+/* ===Responsive Settings=== */
 @media (max-width: 768px) {
   .hero-fixed,
   .team-hero,
@@ -658,8 +657,7 @@ footer {
     line-height: 1.5;
   }
 }
-#for dash
-/* custom.css in /assets */
+/* ===dash=== */
 .Select-control {
     background-color: #1e1e1e !important;
     color: #ffffff !important;
