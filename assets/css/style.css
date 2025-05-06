@@ -24,9 +24,10 @@ body {
 }
 small {
   color: var(--gray-light);
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   display: block;
-  margin-top: 10px
+  margin-top: 15px;
+  font-style: italic
 }
 
 /* ===Containers=== */
