@@ -159,6 +159,7 @@ def clean_agency_file_by_month(filepath, agency_name):
     }).reset_index()
     monthly_counts["Agency"] = agency_name
     return monthly_counts
+    
 # === RUN FETCH + CLEAN + SAVE (ALL AGENCIES, 2010–present) ===
 
 # CDC (Socrata)
@@ -237,7 +238,7 @@ app.layout = html.Div(
     children=[
         # === HEADER ===
         html.Div([
-            html.Img(src="/assets/logo.jpg", style={
+            html.Img(src="/assets/images/logo.jpg", style={
                 "height": "60px", "marginRight": "15px"
             }),
             html.H1("Inkwell Reports", style={
@@ -269,9 +270,10 @@ app.layout = html.Div(
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
                 "color": "#ffffff",
-                "border": "1px solid #555555",
-                "borderRadius": "5px",
-                "padding": "5px"
+                "border": "none",
+                "padding": "8px",
+                "fontWeight": "bold",
+                "boxShadow": "inset 0 0 0 1px #444"
             }
         ),
 
@@ -353,7 +355,7 @@ app.layout = html.Div(
             "fontStyle": "italic",
             "fontSize": "0.9rem",
             "marginTop": "20px"
-        }
+        }),
     ]
 )
 # === CALLBACK: Update Graphs Based on Month Range ===
