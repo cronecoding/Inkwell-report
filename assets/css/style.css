@@ -29,7 +29,19 @@ small {
   margin-top: 15px;
   font-style: italic
 }
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: --white; /* pure white, consistent with headers on dark background */
+}
 
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: --gray-light; /* soft light gray, matches your body text */
+}
 /* ===Containers=== */
 .container {
   max-width: 1200px;
