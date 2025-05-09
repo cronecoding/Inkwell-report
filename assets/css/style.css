@@ -41,6 +41,7 @@ p {
   line-height: 1.6;
   margin-bottom: 1rem;
   color: --gray-light; /* soft light gray, matches your body text */
+  margin: 0 2rem 1.5rem 2rem;
 }
 /* ===Containers=== */
 .container {
