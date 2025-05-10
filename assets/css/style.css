@@ -143,7 +143,7 @@ nav ul li a:hover {
 /* button3 */
 .button-group {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-end;
   flex-wrap: wrap;
   gap: 25px;
