@@ -43,6 +43,17 @@ p {
   color: --gray-light; /* soft light gray, matches your body text */
   margin: 0 2rem 1.5rem 2rem;
 }
+a {
+  color: var(--green);         
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--white);         
+  text-decoration: underline;  
+}
+
 /* ===Containers=== */
 .container {
   max-width: 1200px;
