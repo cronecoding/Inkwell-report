@@ -149,12 +149,12 @@ nav ul li a:hover {
   gap: 25px;
   margin-top: 20px;
   max-width: 800px;
-  justify-content: left;
+  justify-content: center;
 }
 
 .button-group a {
   flex: 1 1 200px;
-  max-width: 300px
+  max-width: 300px;
   background-color: var(--green);
   color: var(--black);
   padding: 12px 25px;
@@ -198,7 +198,7 @@ nav ul li a:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 50vh;
+  height: 40vh;
   color: white;
   text-align: center;
   display: flex;
@@ -222,13 +222,14 @@ nav ul li a:hover {
 }
 
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  width: 60%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 auto
 }
 .hero-overlay h1 {
   opacity: 0;
