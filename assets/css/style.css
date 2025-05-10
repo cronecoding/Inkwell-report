@@ -138,6 +138,32 @@ nav ul li a:hover {
   background-color: #004d33;
 }
 
+/* button3 */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.button-group a {
+  display: inline-block;
+  background-color: var(--green);
+  color: var(--black);
+  padding: 12px 25px;
+  text-decoration: none;
+  border: 2px solid var(--green);
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.button-group a:hover {
+  background-color: var(--black);
+  color: var(--green);
+}
 /* ===Hero=== */
 .hero {
   background-color: var(--black);
@@ -188,7 +214,7 @@ nav ul li a:hover {
 }
 
 .hero-overlay {
-  /*background: rgba(0, 0, 0, 0.5);*/
+  background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
   display: flex;
@@ -215,7 +241,7 @@ nav ul li a:hover {
 
 .team-hero {
   background-image: url('/assets/images/map.png');
-  background-size: 85%;
+  background-size: 90%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -328,31 +354,6 @@ footer {
   color: var(--gray-light);
 }
 
-.button-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 25px;
-  margin-top: 20px;
-}
-
-.button-group a {
-  display: inline-block;
-  background-color: var(--green);
-  color: var(--black);
-  padding: 12px 25px;
-  text-decoration: none;
-  border: 2px solid var(--green);
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.button-group a:hover {
-  background-color: var(--black);
-  color: var(--green);
-}
 /* ===Team=== */
 .team-intro {
   background-color: var(--black);
