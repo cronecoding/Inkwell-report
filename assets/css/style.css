@@ -625,6 +625,12 @@ footer {
 .contact-link:hover {
   text-decoration: underline;
 }
+
+/* ===Briefs====*/
+.briefs-hero {
+  background-image: url('/assets/images/nasa_weather.jpg');
+}
+
 /* ===Responsive Settings=== */
 @media (max-width: 768px) {
   .hero-fixed,
