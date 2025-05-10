@@ -657,11 +657,11 @@ footer {
 }
 /* ===research===*/
 .research-hero {
-  background-image: url('/assets/images/nasa_nova.jpg);
+  background-image: url('/assets/images/nasa_nova'.jpg);
 }
 /* ===dashboard===*/
 .dashboard-hero {
-  background-image: url('/assets/images/luke-chesser-dashboard.jpg);
+  background-image: url('/assets/images/luke-chesser-dashboard.jpg');
 }
 
 
