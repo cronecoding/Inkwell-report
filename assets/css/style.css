@@ -655,6 +655,15 @@ footer {
 .briefs-hero {
   background-image: url('/assets/images/nasa_weather.jpg');
 }
+/* ===research===*/
+.research-hero {
+  background-image: url('/assets/images/nasa_nova.jpg);
+}
+/* ===dashboard===*/
+.dashboard-hero {
+  background-image: url('/assets/images/luke-chesser-dashboard.jpg);
+}
+
 
 /* ===Responsive Settings=== */
 @media (max-width: 768px) {
