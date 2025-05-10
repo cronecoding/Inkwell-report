@@ -129,7 +129,7 @@ nav ul li a:hover {
   color: var(--black);
   padding: 12px 25px;
   text-decoration: none;
-  border: 2px solid var(--black);
+  border: 2px solid var(--gray-dark);
   border-radius: 5px;
   font-weight: bold;
   margin: 5px;
