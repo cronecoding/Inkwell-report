@@ -144,17 +144,17 @@ nav ul li a:hover {
 /* button3 */
 .button-group {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 25px;
   margin-top: 20px;
-  max-width: 200px;
-  width: 100%
+  max-width: 800px;
+  justify-content: left;
 }
 
 .button-group a {
-  display: inline-block;
+  flex: 1 1 200px;
+  max-width: 300px
   background-color: var(--green);
   color: var(--black);
   padding: 12px 25px;
@@ -163,9 +163,6 @@ nav ul li a:hover {
   border-radius: 5px;
   font-weight: bold;
   transition: background 0.3s;
-  width: 100%; /* ensures all buttons inside are same width */
-  text-align: left;
-  padding: 10px 16px; /* optional: slight size reduction, remove if not wanted */
 }
 
 .button-group a:hover {
