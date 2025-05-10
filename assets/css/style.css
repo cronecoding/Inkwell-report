@@ -135,7 +135,8 @@ nav ul li a:hover {
 }
 
 .hero-button:hover {
-  background-color: #004d33;
+  background-color: var(--black);
+  color: var(--green);
 }
 
 /* button3 */
@@ -160,6 +161,9 @@ nav ul li a:hover {
   border-radius: 5px;
   font-weight: bold;
   transition: background 0.3s;
+  width: 100%; /* ensures all buttons inside are same width */
+  text-align: left;
+  padding: 10px 16px; /* optional: slight size reduction, remove if not wanted */
 }
 
 .button-group a:hover {
