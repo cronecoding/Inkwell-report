@@ -126,9 +126,10 @@ nav ul li a:hover {
 .hero-button {
   display: inline-block;
   background-color: var(--green);
-  color: white;
+  color: var(--black);
   padding: 12px 25px;
   text-decoration: none;
+  border: 2px solid var(--green);
   border-radius: 5px;
   font-weight: bold;
   margin: 5px;
@@ -147,7 +148,7 @@ nav ul li a:hover {
   flex-wrap: wrap;
   gap: 25px;
   margin-top: 20px;
-  max-width: 100px;
+  max-width: 200px;
   width: 100%
 }
 
@@ -170,6 +171,9 @@ nav ul li a:hover {
   background-color: var(--black);
   color: var(--green);
 }
+
+
+
 /* ===Hero=== */
 .hero {
   background-color: var(--black);
