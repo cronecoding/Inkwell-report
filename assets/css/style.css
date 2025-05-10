@@ -104,6 +104,40 @@ nav ul li a:hover {
   color: var(--green);
 }
 
+/* button1 */
+.button {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: var(--green);
+  color: var(--black);
+  text-decoration: none;
+  border-radius: 3px;
+  font-weight: bold;
+  transition: background 0.3s;
+  max-width: 300px;
+  width: 100%
+}
+
+.button:hover {
+  background-color: #3ebf6a;
+}
+
+/* button2 */
+.hero-button {
+  display: inline-block;
+  background-color: var(--green);
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.hero-button:hover {
+  background-color: #004d33;
+}
+
 /* ===Hero=== */
 .hero {
   background-color: var(--black);
@@ -122,21 +156,7 @@ nav ul li a:hover {
   color: var(--gray-light);
   margin-bottom: 30px;
 }
-/* button1 */
-.button {
-  display: inline-block;
-  padding: 12px 25px;
-  background-color: var(--green);
-  color: var(--black);
-  text-decoration: none;
-  border-radius: 3px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
 
-.button:hover {
-  background-color: #3ebf6a;
-}
 
 /* Fixed Hero Image Section */
 .hero-fixed {
@@ -165,21 +185,6 @@ nav ul li a:hover {
 .hero-tagline {
   font-size: 1.5rem;
   margin-bottom: 30px;
-}
-/* button2 */
-.hero-button {
-  display: inline-block;
-  background-color: var(--green);
-  color: white;
-  padding: 12px 25px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  margin: 5px;
-}
-
-.hero-button:hover {
-  background-color: #004d33;
 }
 
 .hero-overlay {
