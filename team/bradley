@@ -1,1 +1,38 @@
+---
+layout: default
+title: Ann Bradley
+---
 
+<main>
+  <section class="profile-layout">
+    <div class="container">
+      
+      <div class="profile-image">
+        <img src="/assets/images/AnnBradley.jpg" alt="Ann Bradley" class="profile-photo">
+      </div>
+
+      <div class="profile-text">
+        <h2>Ann Bradley, BSc International Relations</h2>
+        <h3>International Relations and Cultural Insight Analyst</h3>
+
+        <div class="profile-content">
+          <p>
+            Ann is an international relations analyst with a degree from American University and a deep understanding of the intersection between politics, culture, and everyday life in Washington, D.C. Her academic training, combined with years of direct experience navigating political dynamics in high-profile settings, gives her a grounded, people-first perspective on diplomacy, discourse, and soft power. She brings curiosity, insight, and lived fluency in the complexity of U.S. political culture. Ann speaks fluent French and has spent significant time abroad.
+          </p>
+
+          <p>
+            Connect with Ann on 
+            <a href="https://www.linkedin.com/in/ann-bradley-8b4869197/" target="_blank" class="linkedin-link">LinkedIn</a>.
+          </p>
+
+          <p class="back-button">
+            <a href="/team/" class="profile-link">← Back to Our Team</a>
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</main>
