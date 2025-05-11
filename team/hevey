@@ -1,1 +1,39 @@
+---
+layout: default
+title: Brandon Hevey
+---
 
+<main>
+  <section class="profile-layout">
+    <div class="container">
+      
+      <div class="profile-image">
+        <img src="/assets/images/BrandonHevey.jpg" alt="Brandon Hevey" class="profile-photo">
+      </div>
+
+      <div class="profile-text">
+        <h2>Brandon Hevey, BA English, MPH</h2>
+        <h3>Narrative and Imapct Consultant</h3>
+
+        <div class="profile-content">
+          <p>
+            Experienced board member of various non-profit organizations, former secondary English, Language Arts, and Reading Teacher at a Houston area Title 1 high school in an economically disadvantaged area. Brandon Hevey is a freelance writer contributing to local and national online publications, educational publications, and fiction writing. Skilled in Nonprofit Organizations, Event Management, Public Speaking, and Fundraising. Strong business development professional with a Bachelor of Arts (B.A.) focused in English Language and Literature, Secondary Education from the University of Houston and a Masters of Public Health from Brown University.
+
+          </p>
+
+          <p>
+            Connect with Brandon on 
+            <a href="https://https://www.linkedin.com/in/brandonhevey/" target="_blank" class="linkedin-link">LinkedIn</a>.
+          </p>
+
+          <p class="back-button">
+            <a href="/team/" class="profile-link">← Back to Our Team</a>
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</main>
