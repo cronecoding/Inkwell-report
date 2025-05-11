@@ -14,6 +14,15 @@
 }
 
 /* ===overall==== */
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: var(--black);
