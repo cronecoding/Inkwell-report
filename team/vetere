@@ -1,0 +1,50 @@
+---
+layout: default
+title: Trinity Vetere
+---
+
+<main>
+  <section class="profile-layout">
+    <div class="container">
+      
+      <div class="profile-image">
+        <img src="/assets/images/TrinityVetere.jpg" alt="Trinity Vetere" class="profile-photo">
+      </div>
+
+      <div class="profile-text">
+        <h2>Trinity Vetere, BA Sustainability</h2>
+        <h3>Environmental Justice Strategist</h3>
+
+        <div class="profile-content">
+          <p>
+            Trinity Vetere is a dedicated sustainability professional with a strong commitment to environmental justice and community empowerment. In her role as Sustainability Program Coordinator at Sustainable Sandhills, she leads initiatives focused on litter abatement, illegal dumping prevention, and recycling education and infrastructure development.
+          </p>
+
+          <p>
+            With a background in organic urban farming and community-based environmental projects, Trinity brings hands-on experience to her advocacy for sustainable living practices. Her work emphasizes the importance of integrating circular economy principles to create resilient and equitable communities.
+          </p>
+
+          <p>
+            Trinity is passionate about fostering collaborations that bridge the gap between environmental sustainability and social equity. Her approach combines strategic planning with grassroots engagement, aiming to implement solutions that are both innovative and inclusive.
+          </p>
+
+          <p>
+            Based in the southeastern United States, Trinity continues to champion initiatives that promote environmental stewardship and community well-being.
+          </p>
+
+          <p>
+            Connect with Trinity on 
+            <a href="https://www.linkedin.com/in/ecotrinity/" target="_blank" class="linkedin-link">LinkedIn</a>.
+          </p>
+
+          <p class="back-button">
+            <a href="/team/" class="profile-link">← Back to Our Team</a>
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</main>
