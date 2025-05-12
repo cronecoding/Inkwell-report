@@ -251,7 +251,19 @@ app.layout = html.Div(
         }),
         #=====Dashboard content====
         html.H1("🧭 Dataset Transparency Trends", style={'textAlign': 'center'}),
-
+        html.P(
+            "This dashboard tracks the monthly publication of public datasets "
+            "by key U.S. federal agencies from 2010 to 2025. As agencies lose funding and are "
+            "downsized, the number of datasets published is expected to decline. "
+            "Identifying when and where these drops occur is critical to understanding how "
+            "data transparency is shaped by political and institutional forces. "
+            "Use the filters below to explore trends by agency and date range."
+                )
+         html.Small(
+            "Data Source: Data.gov metadata export (retrieved May 2025). "
+            "Processed using Python. Includes records from CDC, EPA, HHS, USDA, DOJ. "
+            "Metrics shown represent monthly counts of published datasets per agency."
+                    )
         html.Label("Select Time Window:", style={"marginTop": "10px"}),
         dcc.Dropdown(
             id='month-window',
