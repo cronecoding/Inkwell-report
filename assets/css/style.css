@@ -679,7 +679,10 @@ footer {
   .hero-fixed,
   .team-hero,
   .service-hero,
-  .contact-hero {
+  .contact-hero
+  .brief-hero
+  .dashboard-hero
+  .research-hero{
     background-attachment: scroll;
     background-position: center center;
     background-size: cover;
@@ -690,6 +693,17 @@ footer {
   }
   .hero h1 {
     margin-top: 40px;
+  }
+  .service-hero h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .service-hero .hero-overlay {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   /* Stack service cards vertically */
   .services-grid {
