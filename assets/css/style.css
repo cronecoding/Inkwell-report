@@ -679,10 +679,10 @@ footer {
   .hero-fixed,
   .team-hero,
   .service-hero,
-  .contact-hero
-  .briefs-hero
-  .dashboard-hero
-  .research-hero{
+  .contact-hero,
+  .briefs-hero,
+  .dashboard-hero,
+  .research-hero {
     background-attachment: scroll;
     background-position: center center;
     background-size: cover;
@@ -698,7 +698,7 @@ footer {
   .service-hero h1, 
   .research-hero h1,
   .team-hero h1,
-  .dashboard h1 {
+  .dashboard-hero h1 {
     font-size: 1.8rem;
     line-height: 1.2;
     text-align: center;
