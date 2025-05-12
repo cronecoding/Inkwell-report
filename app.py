@@ -258,12 +258,12 @@ app.layout = html.Div(
             "Identifying when and where these drops occur is critical to understanding how "
             "data transparency is shaped by political and institutional forces. "
             "Use the filters below to explore trends by agency and date range."
-                )
+                ),
          html.Small(
             "Data Source: Data.gov metadata export (retrieved May 2025). "
             "Processed using Python. Includes records from CDC, EPA, HHS, USDA, DOJ. "
             "Metrics shown represent monthly counts of published datasets per agency."
-                    )
+                    ),
         html.Label("Select Time Window:", style={"marginTop": "10px"}),
         dcc.Dropdown(
             id='month-window',
