@@ -62,7 +62,12 @@ a:hover {
   color: var(--white);         
   text-decoration: underline;  
 }
-
+.social-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
 /* ===Containers=== */
 .container {
   max-width: 1200px;
