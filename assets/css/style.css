@@ -195,7 +195,20 @@ nav ul li a:hover {
   color: var(--green);
 }
 
+example-nav {
+  color: var(--white);
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin: 0;
+  align-items: left
+}
 
+.example-nav-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+  
 
 /* ===Hero=== */
 .hero {
