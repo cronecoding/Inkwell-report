@@ -79,7 +79,7 @@ a:hover {
 header {
   background-color: var(--gray-dark);
   border-bottom: 1px solid var(--green);
-  padding: 30px 20px;
+  padding: 20px 20px;
 }
 
 header h1 {
@@ -195,7 +195,7 @@ nav ul li a:hover {
   color: var(--green);
 }
 
-example-nav {
+examples-nav {
   color: var(--white);
   font-size: 2rem;
   letter-spacing: 1px;
@@ -203,7 +203,7 @@ example-nav {
   align-items: left
 }
 
-.example-nav-flex {
+.examples-nav-flex {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
