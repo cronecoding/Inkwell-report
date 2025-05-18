@@ -234,6 +234,7 @@ examples-nav {
 
 /* Fixed Hero Image Section */
 .hero-fixed {
+  background-color: --black;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
