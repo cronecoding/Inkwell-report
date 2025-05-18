@@ -79,7 +79,7 @@ a:hover {
 header {
   background-color: var(--gray-dark);
   border-bottom: 1px solid var(--green);
-  padding: 5px 20px;
+  padding: 2px 20px;
 }
 
 header h1 {
@@ -99,12 +99,11 @@ header h1 {
 .logo-title {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
 }
 
 .logo {
-  max-height: 200px;
-  height: auto;
+  height: 200px;
   width: auto;
   display:block;
 }
