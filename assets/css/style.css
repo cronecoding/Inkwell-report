@@ -556,7 +556,9 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   height: 60vh;
-  color: white;
+  width: 100vw;
+  margin-left: calc(-50vw +50%) !important;
+  color: var(--white);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -707,7 +709,8 @@ footer {
     background-attachment: scroll !important;
     background-position: center center !important;
     background-size: cover !important;
-    min-height: 500px
+    min-height: 500px;
+    background-repeat: no repeat !important;
   }
   .hero-overlay {
     padding-top: 20px;
@@ -715,7 +718,7 @@ footer {
   }
   .hero h1 {
     margin-top: 40px;
-    text-align: center
+    text-align: center;
   }
   .service-hero h1, 
   .research-hero h1,
