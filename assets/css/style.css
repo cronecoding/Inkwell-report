@@ -772,7 +772,6 @@ footer {
     min-height: 400px !important;
     width: 100vw !important;
     margin-left: calc(-50vw + 50%) !important;
-    boarder: 3px solid red;
   }
 
   .services-hero {
