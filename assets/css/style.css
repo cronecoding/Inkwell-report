@@ -695,7 +695,7 @@ footer {
 
 
 /* ===Responsive Settings=== */
-@media (max-width: 768px) {
+@media (max-width: 834px) {
   .hero-fixed,
   .team-hero,
   .service-hero,
@@ -703,9 +703,9 @@ footer {
   .briefs-hero,
   .dashboard-hero,
   .research-hero {
-    background-attachment: scroll;
-    background-position: center center;
-    background-size: cover;
+    background-attachment: scroll !important;
+    background-position: center center !important;
+    background-size: cover !important;
   }
   .hero-overlay {
     padding-top: 20px;
@@ -744,16 +744,16 @@ footer {
     align-items: center;
   }
   .hero-fixed.home-hero {
-    min-height: 500px; /* Increase background height */
+    min-height: 500px;
   }
 
   .hero-fixed.home-hero h1 {
-    font-size: 2rem;  /* Was 0.9rem — now more readable */
+    font-size: 2rem; 
     line-height: 1.3;
   }
 
   .hero-fixed.home-hero .hero-tagline {
-    font-size: 1.4rem;  /* Increased for readability */
+    font-size: 1.4rem; 
     line-height: 1.5;
   }
 }
