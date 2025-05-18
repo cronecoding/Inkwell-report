@@ -103,18 +103,26 @@ header h1 {
 }
 
 .logo {
-  height: 200px;
+  max-height: 60px;
+  height: auto;
   width: auto;
+  display:block;
 }
 
 /* ====Navigation==== */
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 30px;
-  margin-top: 15px;
+  margin-top: 0;
+  padding: 0;
+}
+
+nav ul li{
+  display: flex;
+  align-items: center;
 }
 
 nav ul li a {
