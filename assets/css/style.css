@@ -696,7 +696,7 @@ footer {
 
 
 /* ===Responsive Settings=== */
-@media (max-width: 834px) {
+@media (max-width: 1024px) {
   .hero-fixed,
   .team-hero,
   .service-hero,
@@ -707,6 +707,7 @@ footer {
     background-attachment: scroll !important;
     background-position: center center !important;
     background-size: cover !important;
+    min-height: 500px
   }
   .hero-overlay {
     padding-top: 20px;
