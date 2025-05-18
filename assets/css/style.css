@@ -42,14 +42,14 @@ h1 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: --white; /* pure white, consistent with headers on dark background */
+  color: var(--white); 
 }
 
 p {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 20px;
-  color: --gray-light; /* soft light gray, matches your body text */
+  color: var(--gray-light);
   margin: 0 2rem 1.5rem 2rem;
 }
 a {
@@ -234,7 +234,7 @@ examples-nav {
 
 /* Fixed Hero Image Section */
 .hero-fixed {
-  background-color: --black;
+  background-color: var(--black);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -523,10 +523,10 @@ footer {
 }
 
 .profile-photo {
-  width: 400px; /* or 220px, you can tweak */
+  width: 400px; 
   height: auto;
-  border-radius: 0; /* if you want it round */
-  object-fit: cover; /* keeps it neat if needed */
+  border-radius: 0; 
+  object-fit: cover; 
   margin-bottom: 20px;
 }
 
@@ -541,7 +541,7 @@ footer {
 }
 
 .profile-content p {
-  margin-bottom: 20px; /* gives breathing room between paragraphs */
+  margin-bottom: 20px; 
   font-size: 1.05rem;
   line-height: 1.7;
   text-align: left;
@@ -642,13 +642,13 @@ footer {
 
 /* ===Contact=== */
 .contact-hero {
-  background-image: url('/assets/images/lets_talk.png'); /* Replace this filename */
+  background-image: url('/assets/images/lets_talk.png'); 
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 60vh;
-  color: white;
+  color: var(--white);
   text-align: center;
   display: flex;
   flex-direction: column;
