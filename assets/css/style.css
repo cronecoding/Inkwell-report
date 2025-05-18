@@ -762,6 +762,26 @@ footer {
     line-height: 1.5;
   }
 }
+@media screen and (orientation: landscape) {
+  .team-hero {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+  }
+
+  .services-hero {
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: scroll !important;
+  }
+
+  .hero-fixed {
+    min-height: 500px !important;
+  }
+}
 /* ===dash=== */
 .Select-control {
     background-color: #1e1e1e !important;
