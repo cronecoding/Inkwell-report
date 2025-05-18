@@ -79,7 +79,7 @@ a:hover {
 header {
   background-color: var(--gray-dark);
   border-bottom: 1px solid var(--green);
-  padding: 10px 20px;
+  padding: 5px 20px;
 }
 
 header h1 {
@@ -118,11 +118,6 @@ nav ul {
   gap: 30px;
   margin-top: 0;
   padding: 0;
-}
-
-nav ul li{
-  display: flex;
-  align-items: center;
 }
 
 nav ul li a {
