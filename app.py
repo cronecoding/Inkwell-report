@@ -1,228 +1,3 @@
-import pandas as pd
-import requests
-import dash
-from dash import dcc, html, Input, Output
-import plotly.express as px
-# === STEP 1: FETCH & CLEAN METADATA===
-# ==============CDC==============
-def fetch_cdc_dataset_counts(start_year=2010):
-    url = "https://data.cdc.gov/api/views/metadata/v1"
-    r = requests.get(url)
-    raw_data = r.json()
-    df = pd.DataFrame(raw_data)
-    df["createdAt"] = pd.to_datetime(df["createdAt"], errors="coerce")
-    df = df.dropna(subset=["createdAt"])
-    df = df[df["createdAt"].dt.year >= start_year]
-    df["created_date"] = df["createdAt"].dt.date
-    counts = df.groupby("created_date").size().reset_index(name="datasets_created")
-    counts["Agency"] = "CDC"
-    counts.to_csv("cdc_dataset_counts.csv", index=False)
-# ===============epa===============
-def fetch_epa_dataset_counts(start_year=2010):
-    base_url = "https://catalog.data.gov"
-    org_name = "epa-gov"
-    search_url = f"{base_url}/api/3/action/package_search"
-    
-    params = {"fq": f"organization:{org_name}", "rows": 1000, "start": 0}
-    all_results = []
-
-    while True:
-        r = requests.get(search_url, params=params)
-        results = r.json()["result"]["results"]
-        if not results:
-            break
-        all_results.extend(results)
-        params["start"] += len(results)
-        if len(results) < 1000:
-            break
-            
-    created_dates = [r.get("metadata_created") for r in all_results if r.get("metadata_created")]
-    df = pd.DataFrame({"createdAt": pd.to_datetime(created_dates, errors="coerce")})
-    df = df[df["createdAt"].dt.year >= start_year]
-    df["created_date"] = df["createdAt"].dt.date
-    counts = df.groupby("created_date").size().reset_index(name="datasets_created")
-    counts["Agency"] = "EPA"
-    counts.to_csv("epa_dataset_counts.csv", index=False)
-#=============hhs===========
-def fetch_hhs_dataset_counts(start_year=2010):
-    url = "https://healthdata.gov/api/views/metadata/v1"
-    r = requests.get(url)
-    raw_data = r.json()
-    df = pd.DataFrame(raw_data)
-
-    # Parse and filter by year
-    df["createdAt"] = pd.to_datetime(df["createdAt"], errors="coerce")
-    df = df.dropna(subset=["createdAt"])
-    df = df[df["createdAt"].dt.year >= start_year]
-    df["created_date"] = df["createdAt"].dt.date
-
-    # Group by date
-    counts = df.groupby("created_date").size().reset_index(name="datasets_created")
-    counts["Agency"] = "HHS"
-    counts.to_csv("hhs_dataset_counts.csv", index=False)
-
-    print("✅ HHS fetch complete ✔️")
-# ========usda=============
-def fetch_usda_dataset_counts(start_year=2010):
-    base_url = "https://catalog.data.gov"
-    org_name = "usda-gov"
-    search_url = f"{base_url}/api/3/action/package_search"
-    
-    params = {
-        "fq": f"organization:{org_name}",
-        "sort": "metadata_created asc",  # optional, to see earliest dates
-        "rows": 1000,
-        "start": 0
-    }
-    all_results = []
-
-    while True:
-        r = requests.get(search_url, params=params)
-        results = r.json()["result"]["results"]
-        if not results:
-            break
-        all_results.extend(results)
-        params["start"] += len(results)
-        if len(results) < 1000:
-            break
-
-    created_dates = [r.get("metadata_created") for r in all_results if r.get("metadata_created")]
-    df = pd.DataFrame({"createdAt": pd.to_datetime(created_dates, errors="coerce")})
-    df = df.dropna()
-    df = df[df["createdAt"].dt.year >= start_year]
-    df["created_date"] = df["createdAt"].dt.date
-
-    counts = df.groupby("created_date").size().reset_index(name="datasets_created")
-    counts["Agency"] = "USDA"
-    counts.to_csv("usda_dataset_counts.csv", index=False)
-
-    print("✅ USDA fetch complete ✔️")
-# ======= ckan data (doj, nsf) started in 2019 ========
-def fetch_ckan_dataset_counts(agency_key, output_csv, start_year=2010):
-    import requests
-    import pandas as pd
-    import os
-
-    base_url = "https://catalog.data.gov"
-    search_url = f"{base_url}/api/3/action/package_search"
-
-    params = {
-        "fq": f"organization:{agency_key}",
-        "rows": 1000,
-        "start": 0
-    }
-
-    seen_ids = set()
-    created_dates = []
-
-    print(f"🔍 Fetching CKAN data for: {agency_key}")
-    
-    while True:
-        r = requests.get(search_url, params=params)
-        results = r.json().get("result", {}).get("results", [])
-
-        if not results:
-            break
-
-        for r in results:
-            dataset_id = r.get("id")
-            created_str = r.get("metadata_created")
-            if dataset_id and created_str and dataset_id not in seen_ids:
-                seen_ids.add(dataset_id)
-                created_dates.append(created_str)
-
-        params["start"] += len(results)
-        if len(results) < 1000:
-            break
-
-    if not created_dates:
-        print(f"⚠️ No new records found for {agency_key}")
-        return
-
-    df = pd.DataFrame({"createdAt": pd.to_datetime(created_dates, errors="coerce")})
-    df = df.dropna()
-    df = df[df["createdAt"].dt.year >= start_year]
-    df["created_date"] = df["createdAt"].dt.date
-
-    counts = df.groupby("created_date").size().reset_index(name="datasets_created")
-    counts["Agency"] = agency_key.upper()
-
-    counts.to_csv(output_csv, index=False)
-    print(f"✅ {agency_key.upper()} fetch complete — {len(df)} records processed")
-# ======clean it up nice =======
-def clean_agency_file_by_month(filepath, agency_name):
-    df = pd.read_csv(filepath, parse_dates=["created_date"])
-    df["Agency"] = agency_name
-    df["month"] = df["created_date"].values.astype('datetime64[M]')
-    monthly_counts = df.groupby("month").agg({
-        "datasets_created": "sum"
-    }).reset_index()
-    monthly_counts["Agency"] = agency_name
-    return monthly_counts
-    
-# === RUN FETCH + CLEAN + SAVE (ALL AGENCIES, 2010–present) ===
-
-# CDC (Socrata)
-fetch_cdc_dataset_counts()
-cdc_monthly = clean_agency_file_by_month("cdc_dataset_counts.csv", "CDC")
-cdc_monthly.to_csv("cdc_monthly.csv", index=False)
-print("✅ CDC monthly summary saved to cdc_monthly.csv")
-
-# EPA
-fetch_epa_dataset_counts()
-epa_monthly = clean_agency_file_by_month("epa_dataset_counts.csv", "EPA")
-epa_monthly.to_csv("epa_monthly.csv", index=False)
-print("✅ EPA monthly summary saved to epa_monthly.csv")
-
-# HHS
-fetch_ckan_dataset_counts("hhs-gov", "HHS")
-hhs_monthly = clean_agency_file_by_month("hhs_dataset_counts.csv", "HHS")
-hhs_monthly.to_csv("hhs_monthly.csv", index=False)
-print("✅ HHS monthly summary saved to hhs_monthly.csv")
-
-# DOJ
-fetch_ckan_dataset_counts("doj-gov", "DOJ")
-doj_monthly = clean_agency_file_by_month("doj_dataset_counts.csv", "DOJ")
-doj_monthly.to_csv("doj_monthly.csv", index=False)
-print("✅ DOJ monthly summary saved to doj_monthly.csv")
-
-# USDA
-fetch_ckan_dataset_counts("usda-gov", "USDA")
-usda_monthly = clean_agency_file_by_month("usda_dataset_counts.csv", "USDA")
-usda_monthly.to_csv("usda_monthly.csv", index=False)
-print("✅ USDA monthly summary saved to usda_monthly.csv")
-
-# NSF
-fetch_ckan_dataset_counts("nsf-gov", "NSF")
-nsf_monthly = clean_agency_file_by_month("nsf_dataset_counts.csv", "NSF")
-nsf_monthly.to_csv("nsf_monthly.csv", index=False)
-print("✅ NSF monthly summary saved to nsf_monthly.csv")
-import os
-
-# Helper to safely load a CSV
-def safe_read(path):
-    if os.path.exists(path):
-        df = pd.read_csv(path, parse_dates=["month"])
-        if not df.empty and "datasets_created" in df.columns:
-            return df
-    return None
-
-# Only include valid, non-empty files
-dataframes = [
-    safe_read("cdc_monthly.csv"),
-    safe_read("epa_monthly.csv"),
-    safe_read("hhs_monthly.csv"),
-    safe_read("doj_monthly.csv"),
-    safe_read("usda_monthly.csv"),
-    safe_read("nsf_monthly.csv")
-]
-
-# Filter out None entries
-dataframes = [df for df in dataframes if df is not None]
-
-# Combine safely
-combined_df = pd.concat(dataframes, ignore_index=True)
-
 # ===== STEP 3: DASHBOARD IT======
 app = dash.Dash(__name__)
 app.title = "Dataset Transparency Dashboard"
@@ -236,34 +11,8 @@ app.layout = html.Div(
         'padding': '20px'
     },
     children=[
-        # === HEADER ===
-        html.Div([
-            html.Img(src="/assets/images/logo.jpg", style={
-                "height": "60px", "marginRight": "15px"
-            }),
-            html.H1("Inkwell Reports", style={
-                "margin": 0, "fontSize": "2rem", "color": "#FFFFFF"
-            }),
-        ], style={
-            "display": "flex",
-            "alignItems": "center",
-            "marginBottom": "30px"
-        }),
-        #=====Dashboard content====
         html.H1("🧭 Dataset Transparency Trends", style={'textAlign': 'center'}),
-        html.P(
-            "This dashboard tracks the monthly publication of public datasets "
-            "by key U.S. federal agencies from 2010 to 2025. As agencies lose funding and are "
-            "downsized, the number of datasets published is expected to decline. "
-            "Identifying when and where these drops occur is critical to understanding how "
-            "data transparency is shaped by political and institutional forces. "
-            "Use the filters below to explore trends by agency and date range."
-                ),
-         html.Small(
-            "Data Source: Data.gov metadata export (retrieved May 2025). "
-            "Processed using Python. Includes records from CDC, EPA, HHS, USDA, DOJ. "
-            "Metrics shown represent monthly counts of published datasets per agency."
-                    ),
+
         html.Label("Select Time Window:", style={"marginTop": "10px"}),
         dcc.Dropdown(
             id='month-window',
@@ -282,11 +31,16 @@ app.layout = html.Div(
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
                 "color": "#ffffff",
-                "fontWeight": "bold"
+                "border": "1px solid #555555",
+                "borderRadius": "5px",
+                "padding": "5px",
+                "boxShadow": "none",
+                "outline": "none"
             }
         ),
 
         dcc.Graph(id='line-graph'),
+        html.Div(id='line-graph-explanation'),
         dcc.Graph(id='bar-graph'),
 
         html.Label("Compare Change In Number of Datasets Released (Month Over Year):", style={"marginTop": "20px"}),
@@ -296,13 +50,14 @@ app.layout = html.Div(
                 "January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
             ], 1)],
-            value=pd.Timestamp.today().month,  # defaults to current month
+            value=(pd.Timestamp.today().month - 1) or 12,  # defaults to last month
             clearable=False,
             style={
                 "width": "200px",
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
-                "color": "#ffffff"
+                "color": "#ffffff",
+                "border": "1px solid #555555"
             }
         ),
 
@@ -327,7 +82,9 @@ app.layout = html.Div(
                 "width": "200px",
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
-                "color": "#ffffff"
+                "color": "#ffffff",
+                "border": "1px solid #555555",
+                "padding": "5px"
             }
         ),
 
@@ -344,61 +101,28 @@ app.layout = html.Div(
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
                 "color": "#ffffff",
+                "border": "1px solid #555555",
                 "padding": "5px"
             }
         ),
+
         dcc.Graph(id='monthly-agency-bar'),
-        # === FOOTER ===
-        html.Hr(style={"borderColor": "#555555", "marginTop": "40px"}),
-        html.Div([
-            html.P("Inkwell Reports © 2025 | Monitoring the erosion of public data with transparency."),
-            html.A("Return to Inkwell Homepage", href="https://inkwell.reports", target="_blank", style={
-                "color": "#4DA8DA", "textDecoration": "underline", "display": "block", "marginTop": "10px"
-            })
-        ], style={
-            "textAlign": "center",
-            "fontStyle": "italic",
-            "fontSize": "0.9rem",
-            "marginTop": "20px"
-        }),
     ]
 )
+
 # === CALLBACK: Update Graphs Based on Month Range ===
 
 @app.callback(
     Output('line-graph', 'figure'),
     Output('bar-graph', 'figure'),
     Output('slope-graph', 'figure'),
+    Output('line-graph-explanation', 'children'),
     Input('month-window', 'value'),
     Input('slope-month', 'value')
 )
 def update_graphs(months_back, slope_window):
     # Load all monthly data files
-    data_paths = {
-        "CDC": "cdc_monthly.csv",
-        "EPA": "epa_monthly.csv",
-        "HHS": "hhs_monthly.csv",
-        "DOJ": "doj_monthly.csv",
-        "USDA": "usda_monthly.csv",
-        "NSF": "nsf_monthly.csv"
-    }
-
-    valid_dfs = []
-
-    print("📊 Checking monthly data files:")
-    for agency, path in data_paths.items():
-        if os.path.exists(path):
-            df = pd.read_csv(path, parse_dates=["month"])
-            if df.empty or df["datasets_created"].isna().all():
-                print(f"⚠️ {agency} data is EMPTY or all NA — skipping")
-            else:
-                print(f"✅ {agency} loaded with {len(df)} rows")
-                valid_dfs.append(df)
-        else:
-            print(f"🚫 {agency} file not found: {path}")
-
-    # Combine valid dataframes
-    combined_df = pd.concat(valid_dfs, ignore_index=True)
+    data_paths = pd.read_csv("data/combined_monthly.csv", parse_dates=['month'])
 
     # Filter for selected number of months
     cutoff = pd.Timestamp.today().replace(day=1) - pd.DateOffset(months=months_back)
@@ -408,10 +132,10 @@ def update_graphs(months_back, slope_window):
     fig_line = px.line(
         recent_df,
         x="month",
-        y="datasets_created",
+        y="normalized",
         color="Agency",
-        title=f"🕵️‍♂️ Dataset Releases (Last {months_back} Months)",
-        labels={"month": "Month", "datasets_created": "Datasets Published"},
+        title=f"🕵️‍♂️ Dataset Releases (Normalized, Last {months_back} Months)",
+        labels={"month": "Month", "normalized": "Relative Activity"},
         markers=True
     )
     fig_line.update_layout(
@@ -425,9 +149,9 @@ def update_graphs(months_back, slope_window):
         agency_df = recent_df[recent_df["Agency"] == agency].sort_values("month")
         previous = None
         for _, row in agency_df.iterrows():
-            if previous and previous > 0 and row["datasets_created"] == 0:
+            if previous and previous > 0 and row["normalized"] == 0:
                 dropoff_lines.append({"agency": agency, "date": row["month"]})
-            previous = row["datasets_created"]
+            previous = row["normalized"]
     for event in dropoff_lines:
         fig_line.add_vline(
             x=event["date"],
@@ -436,7 +160,26 @@ def update_graphs(months_back, slope_window):
             annotation_text=f"{event['agency']} drop-off",
             annotation_position="top left"
         )
+    # === explaination of normalized graphs ===
+    explanation = html.Div(
+    children=f"""
+        📈 This graph shows dataset publication trends over the last {months_back} months for each agency. 
+        The values are normalized: each point represents the number of datasets published in that period 
+        as a proportion of the busiest month on record for that agency (since 2010).
 
+        A value of 1.0 means the agency matched or exceeded its historical peak. 
+        Lower values indicate less activity relative to its own past—not compared to other agencies.
+
+        This normalization allows fair trend comparisons without larger publishers like NOAA flattening the scale.
+    """,
+    style={
+        "marginTop": "10px",
+        "marginBottom": "20px",
+        "fontSize": "14px",
+        "lineHeight": "1.6",
+        "color": "#CCCCCC",
+        "maxWidth": "800px"})
+        
     # === Graph 2: Bar Chart of Totals
     total_recent = recent_df.groupby("Agency")["datasets_created"].sum().reset_index()
     fig_bar = px.bar(
@@ -458,7 +201,7 @@ def update_graphs(months_back, slope_window):
     slope_data = combined_df[combined_df["month"].dt.month == target_month].copy()
 
     # Get the most recent two years that have data for this month
-    available_years = sorted(slope_data["month"].dt.year.unique(), reverse=True)[:2]
+    available_years = sorted(slope_data["month"].dt.year.unique(), reverse=True)[:3]
 
     if len(available_years) < 2:
         # Not enough data — fallback empty chart with message
@@ -501,7 +244,7 @@ def update_graphs(months_back, slope_window):
     )
     fig_slope.update_traces(marker=dict(size=10)  # Adjust size as needed
     )
-    return fig_line, fig_bar, fig_slope
+    return fig_line, fig_bar, fig_slope, explanation
     
 # === graph 4: Update Single-Agency Monthly Upload Chart ===
 @app.callback(
@@ -540,8 +283,7 @@ def update_agency_bar(agency, months_back):
         xaxis_tickformat="%b\n%Y"
     )
     return fig
-# === RUN THE APP ===
-if __name__ == "__main__":
-    app.run_server(debug=False, host="0.0.0.0", port=int(os.environ.get("PORT", 8050)))
-server = app.server
 
+# === RUN THE APP ===
+if __name__ == '__main__':
+    app.run_server(debug=True, port=8051)
