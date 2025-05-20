@@ -82,7 +82,7 @@ app.layout = html.Div(
         dcc.Dropdown(
             id='single-agency',
             options=[{"label": agency, "value": agency} for agency in [
-                "CDC", "EPA", "HHS", "DOJ", "USDA", "NSF"
+                "CDC", "EPA", "HHS", "DOJ", "USDA", "NSF", "NOAA"
             ]],
             value="CDC",
             clearable=False,
@@ -261,14 +261,11 @@ def update_graphs(months_back, slope_window):
     Input("month-range", "value")
 )
 def update_agency_bar(agency, months_back):
-    import pandas as pd
-    import plotly.express as px
-    import os
 
     if not agency:
         return px.bar(title="No agency selected")
 
-    file = f"{agency.lower()}_monthly.csv"
+    file = f"data/{agency.lower()}_monthly.csv"
     if not os.path.exists(file):
         return px.bar(title=f"No data file found for {agency}")
 
