@@ -37,7 +37,7 @@ app.layout = html.Div(
             style={
                 "width": "200px",
                 "marginBottom": "20px",
-                "backgroundColor": #1a1a1a;,
+                "backgroundColor": #1a1a1a,
                 "color": "#ffffff",
             }
         ),
