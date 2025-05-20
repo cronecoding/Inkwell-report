@@ -37,7 +37,7 @@ app.layout = html.Div(
             style={
                 "width": "200px",
                 "marginBottom": "20px",
-                "backgroundColor": "#1a1a1a",
+                "backgroundColor": "#1e1e1e",
                 "color": "#ffffff"
             }
         ),
@@ -64,42 +64,48 @@ app.layout = html.Div(
         ),
 
         dcc.Graph(id='slope-graph'),
+        html.Div(
+            style={"display": "flex", "gap": "20px", "alignItems": "center", "marginBottom": "30px"},
+            children=[
+                html.Div([
+                    html.Label("Select Agency:"),
+                    dcc.Dropdown(
+                        id='single-agency',
+                        options=[{"label": agency, "value": agency} for agency in [
+                            "CDC", "DOJ", "EPA", "HHS", "NSF", "NOAA", "USDA"
+                                ]],
+                        value="CDC",
+                        clearable=False,
+                        style={
+                            "width": "200px",
+                            "backgroundColor": "#1e1e1e",
+                            "color": "#ffffff"
+                        }
+                    )
+                ]),
+                html.Div([
+                    html.Label("Select Range (Months):"),
+                    dcc.Input(
+                        id='month-range',
+                        type='number',
+                        min=1,
+                        max=180,
+                        step=1,
+                        value=12,
+                        style={
+                            "width": "200px",
+                            "height": "38px",  # match dropdown height
+                            "paddingLeft": "10px",
+                            "border": "1px solid #ccc",
+                            "borderRadius": "4px",
+                            "backgroundColor": "#1e1e1e",
+                            "color": "#ffffff"
+                }
+            )
+        ])
+    ]
+),
 
-
-                
-        html.H2("Single Agency View", style={"marginTop": "40px"}),
-
-        html.Label("Select Agency:"),
-        dcc.Dropdown(
-            id='single-agency',
-            options=[{"label": agency, "value": agency} for agency in [
-                "CDC", "DOJ", "EPA", "HHS", "NSF", "NOAA", "USDA"
-            ]],
-            value="CDC",
-            clearable=False,
-            style={
-                "width": "200px",
-                "marginBottom": "30px",
-                "backgroundColor": "#1e1e1e",
-                "color": "#ffffff"
-            }
-
-        ),
-        html.Label("Select Range (Months):"),
-        dcc.Input(
-            id='month-range',
-            type='number',
-            min=1,
-            max=180,
-            step=1,
-            value=12,
-            style={
-                "width": "50px",
-                "marginBottom": "20px",
-                "backgroundColor": "#1e1e1e",
-                "color": "#ffffff"
-            }
-        ),
 
         dcc.Graph(id='monthly-agency-bar'),
         html.Div(
