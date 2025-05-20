@@ -114,6 +114,14 @@ app.layout = html.Div(
         html.Div(
             "Data from data.cdc.gov & catalog.data.gov",
             style={'textAlign': 'center', 'fontStyle': 'italic'}
+        ),
+        html.Img(
+            src="/assets/logo.jpg",  # or use a full URL
+            style={
+                "display": "block",
+                "margin": "40px auto 0",  # top, auto-sides, no bottom
+                "height": "60px"
+            }
         )
     ]
     )
