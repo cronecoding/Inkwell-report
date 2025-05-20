@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Dashboard example"
+description "Data analysis, dashboards, and strategy—customized to support public health, climate, and policy work."
+image: "/assets/images/logo.jpg"
+---
+
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
@@ -13,13 +20,13 @@ app.title = "Dataset Transparency Dashboard"
 # Update your layout
 app.layout = html.Div(
     style={
-        'backgroundColor': '#31363A',
-        'color': '#FFFFFF',
+        'backgroundColor': 'black',
+        'color': 'white',
         'fontFamily': 'Arial',
         'padding': '20px'
     },
     children=[
-        html.H1("🧭 Dataset Transparency Trends", style={'textAlign': 'center'}),
+        html.H1("Inkwell Global Report: Dataset Transparency Trends", style={'textAlign': 'center'}),
 
         html.Label("Select Time Window:", style={"marginTop": "10px"}),
         dcc.Dropdown(
@@ -37,9 +44,8 @@ app.layout = html.Div(
             style={
                 "width": "200px",
                 "marginBottom": "20px",
-                "backgroundColor": "#1e1e1e",
+                "backgroundColor": #1a1a1a;,
                 "color": "#ffffff",
-                "border": "1px solid #555555",
             }
         ),
 
@@ -66,29 +72,29 @@ app.layout = html.Div(
 
         dcc.Graph(id='slope-graph'),
 
-        html.Div(
-            "Data from data.cdc.gov & catalog.data.gov",
-            style={'textAlign': 'center', 'fontStyle': 'italic'}
-        ),
+
                 
-        html.H2("📌 Single Agency View", style={"marginTop": "40px"}),
+        html.H2("Single Agency View", style={"marginTop": "40px"}),
 
         html.Label("Select Agency:"),
         dcc.Dropdown(
             id='single-agency',
             options=[{"label": agency, "value": agency} for agency in [
-                "CDC", "EPA", "HHS", "DOJ", "USDA", "NSF", "NOAA"
+                "CDC", "DOJ", "EPA", "HHS", "NSF", "NOAA", "USDA"
             ]],
             value="CDC",
             clearable=False,
             style={
-                "width": "200px",
-                "marginBottom": "20px",
+                "width": "40px",
+                "marginBottom": "30px",
                 "backgroundColor": "#1e1e1e",
                 "color": "#ffffff",
             }
         ),
-
+        html.Div(
+            "Data from data.cdc.gov & catalog.data.gov",
+            style={'textAlign': 'center', 'fontStyle': 'italic'}
+        ),
         html.Label("Select Range (Months):"),
         dcc.Input(
             id='month-range',
@@ -133,7 +139,7 @@ def update_graphs(months_back, slope_window):
         x="month",
         y="normalized",
         color="Agency",
-        title=f"🕵️‍♂️ Dataset Releases (Normalized, Last {months_back} Months)",
+        title=f"Dataset Releases (Normalized, Last {months_back} Months)",
         labels={"month": "Month", "normalized": "Relative Activity"},
         markers=True
     )
@@ -177,7 +183,9 @@ def update_graphs(months_back, slope_window):
         "fontSize": "14px",
         "lineHeight": "1.6",
         "color": "#CCCCCC",
-        "maxWidth": "800px"})
+        "maxWidth": "800px",
+        "display": "flex", 
+        "justifyContent": "center"},)
         
     # === Graph 2: Bar Chart of Totals
     total_recent = recent_df.groupby("Agency")["datasets_created"].sum().reset_index()
@@ -185,7 +193,7 @@ def update_graphs(months_back, slope_window):
         total_recent,
         x="Agency",
         y="datasets_created",
-        title=f"📊 Total Datasets Published (Last {months_back} Months)",
+        title=f"Total Datasets Published (Last {months_back} Months)",
         labels={"datasets_created": "Total Datasets"},
         color="Agency"
     )
