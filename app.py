@@ -78,15 +78,12 @@ app.layout = html.Div(
             value="CDC",
             clearable=False,
             style={
-                "width": "40px",
+                "width": "200px",
                 "marginBottom": "30px",
                 "backgroundColor": "#1e1e1e",
                 "color": "#ffffff"
             }
-        ),
-        html.Div(
-            "Data from data.cdc.gov & catalog.data.gov",
-            style={'textAlign': 'center', 'fontStyle': 'italic'}
+
         ),
         html.Label("Select Range (Months):"),
         dcc.Input(
@@ -97,7 +94,7 @@ app.layout = html.Div(
             step=1,
             value=12,
             style={
-                "width": "200px",
+                "width": "50px",
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
                 "color": "#ffffff"
@@ -105,8 +102,12 @@ app.layout = html.Div(
         ),
 
         dcc.Graph(id='monthly-agency-bar'),
+        html.Div(
+            "Data from data.cdc.gov & catalog.data.gov",
+            style={'textAlign': 'center', 'fontStyle': 'italic'}
+        )
     ]
-)
+    )
 
 # === CALLBACK: Update Graphs Based on Month Range ===
 
@@ -176,7 +177,7 @@ def update_graphs(months_back, slope_window):
         "fontSize": "14px",
         "lineHeight": "1.6",
         "color": "#CCCCCC",
-        "maxWidth": "800px",
+        "width": "100%",
         "display": "flex", 
         "justifyContent": "center"},)
         
