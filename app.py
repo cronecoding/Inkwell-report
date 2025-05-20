@@ -40,10 +40,6 @@ app.layout = html.Div(
                 "backgroundColor": "#1e1e1e",
                 "color": "#ffffff",
                 "border": "1px solid #555555",
-                "borderRadius": "5px",
-                "padding": "5px",
-                "boxShadow": "none",
-                "outline": "none"
             }
         ),
 
@@ -65,9 +61,6 @@ app.layout = html.Div(
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
                 "color": "#ffffff",
-                "border": "1px solid #555555",
-                "boxShadow":"none",
-                "outline":"none"
             }
         ),
 
@@ -93,10 +86,6 @@ app.layout = html.Div(
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
                 "color": "#ffffff",
-                "border": "1px solid #555555",
-                "padding": "5px"
-                "boxShadow":"none",
-                "outline":"none"
             }
         ),
 
@@ -113,8 +102,6 @@ app.layout = html.Div(
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
                 "color": "#ffffff",
-                "border": "1px solid #555555",
-                "padding": "5px"
             }
         ),
 
