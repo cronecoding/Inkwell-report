@@ -65,10 +65,10 @@ app.layout = html.Div(
 
         dcc.Graph(id='slope-graph'),
         html.Div(
-            style={"display": "flex", "gap": "20px", "alignItems": "center", "marginBottom": "30px"},
+            style={"display": "flex", "gap": "30px", "alignItems": "flex-start", "marginBottom": "30px"},
             children=[
                 html.Div([
-                    html.Label("Select Agency:"),
+                    html.Label("Select Agency:", style={"marginBottom": "5px", "display": "block"}),
                     dcc.Dropdown(
                         id='single-agency',
                         options=[{"label": agency, "value": agency} for agency in [
@@ -79,12 +79,13 @@ app.layout = html.Div(
                         style={
                             "width": "200px",
                             "backgroundColor": "#1e1e1e",
-                            "color": "#ffffff"
+                            "color": "#ffffff",
+                            "fontSize": "14px"
                         }
                     )
                 ]),
                 html.Div([
-                    html.Label("Select Range (Months):"),
+                    html.Label("Select Range (Months)::", style={"marginBottom": "5px", "display": "block"}),
                     dcc.Input(
                         id='month-range',
                         type='number',
@@ -96,10 +97,12 @@ app.layout = html.Div(
                             "width": "200px",
                             "height": "38px",  # match dropdown height
                             "paddingLeft": "10px",
+                            "paddingTop": "5px",
                             "border": "1px solid #ccc",
                             "borderRadius": "4px",
                             "backgroundColor": "#1e1e1e",
-                            "color": "#ffffff"
+                            "color": "#ffffff",
+                            "fontSize": "14px"
                 }
             )
         ])
