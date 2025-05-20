@@ -1,10 +1,3 @@
----
-layout: default
-title: "Dashboard example"
-description "Data analysis, dashboards, and strategy—customized to support public health, climate, and policy work."
-image: "/assets/images/logo.jpg"
----
-
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
