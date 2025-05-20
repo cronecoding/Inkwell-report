@@ -130,7 +130,7 @@ app.layout = html.Div(
 )
 def update_graphs(months_back, slope_window):
     # Load all monthly data files
-    data_paths = pd.read_csv("data/combined_monthly.csv", parse_dates=['month'])
+    combined_df = pd.read_csv("data/combined_monthly.csv", parse_dates=['month'])
 
     # Filter for selected number of months
     cutoff = pd.Timestamp.today().replace(day=1) - pd.DateOffset(months=months_back)
