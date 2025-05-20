@@ -116,7 +116,7 @@ app.layout = html.Div(
             style={'textAlign': 'center', 'fontStyle': 'italic'}
         ),
         html.Img(
-            src="/assets/logo.jpg",  # or use a full URL
+            src="/assets/images/logo.jpg",  # or use a full URL
             style={
                 "display": "block",
                 "margin": "40px auto 0",  # top, auto-sides, no bottom
