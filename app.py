@@ -1,3 +1,9 @@
+import pandas as pd
+import requests
+import dash
+from dash import dcc, html, Input, Output
+import plotly.express as px
+
 # ===== STEP 3: DASHBOARD IT======
 app = dash.Dash(__name__)
 app.title = "Dataset Transparency Dashboard"
