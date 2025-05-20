@@ -37,8 +37,8 @@ app.layout = html.Div(
             style={
                 "width": "200px",
                 "marginBottom": "20px",
-                "backgroundColor": #1a1a1a,
-                "color": "#ffffff",
+                "backgroundColor": "#1a1a1a",
+                "color": "#ffffff"
             }
         ),
 
@@ -59,7 +59,7 @@ app.layout = html.Div(
                 "width": "200px",
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
-                "color": "#ffffff",
+                "color": "#ffffff"
             }
         ),
 
@@ -81,7 +81,7 @@ app.layout = html.Div(
                 "width": "40px",
                 "marginBottom": "30px",
                 "backgroundColor": "#1e1e1e",
-                "color": "#ffffff",
+                "color": "#ffffff"
             }
         ),
         html.Div(
@@ -100,7 +100,7 @@ app.layout = html.Div(
                 "width": "200px",
                 "marginBottom": "20px",
                 "backgroundColor": "#1e1e1e",
-                "color": "#ffffff",
+                "color": "#ffffff"
             }
         ),
 
@@ -242,7 +242,7 @@ def update_graphs(months_back, slope_window):
         paper_bgcolor="#31363A",
         font_color="#FFFFFF",
     )
-    fig_slope.update_traces(marker=dict(size=10)  # Adjust size as needed
+    fig_slope.update_traces(marker=dict(size=10))  # Adjust size as needed
     )
     return fig_line, fig_bar, fig_slope, explanation
     
