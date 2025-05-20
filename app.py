@@ -242,7 +242,7 @@ def update_graphs(months_back, slope_window):
         paper_bgcolor="#31363A",
         font_color="#FFFFFF",
     )
-    fig_slope.update_traces(marker=dict(size=10))  # Adjust size as needed
+    fig_slope.update_traces(marker=dict(size=10)  # Adjust size as needed
     )
     return fig_line, fig_bar, fig_slope, explanation
     
