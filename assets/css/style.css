@@ -792,25 +792,22 @@ footer {
 }
 }
 /* ===dash=== */
-.Select-control {
-    background-color: var(--dark-grey) !important;
-    color: var(--white) !important;
-}
 
 .Select-option {
-    background-color: var(--dark-grey) !important;
+    background-color: var(--dark-gray) !important;
     color: var(--white) !important;
 }
 
 .Select-option:hover {
     background-color: var(--green) !important;
+    color: var(--black);
 }
-/* Force light text for selected value (closed state) */
+/*closed dropdown box*/
 .Select-control,
 .Select--single > .Select-control {
-  background-color: var(--dark-grey) !important;
+  background-color: var(--dark-gray) !important;
   color: var(--white) !important;
-  border: 1px solid var(--light-grey) !important;
+  border: 1px solid var(--light-gray) !important;
 }
 
 /* Force white text inside placeholder/selected value */
@@ -826,10 +823,11 @@ footer {
 
 /* Dropdown menu (open state) */
 .VirtualizedSelectOption {
-  background-color: var(--dark-grey) !important;
+  background-color: var(--dark-gray) !important;
   color: var(--white) !important;
 }
 
 .VirtualizedSelectOption:hover {
   background-color: var(--green) !important;
+  color: var(--black);
 }
