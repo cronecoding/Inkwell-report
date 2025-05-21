@@ -3,6 +3,8 @@ import requests
 import dash
 from dash import dcc, html, Input, Output
 import plotly.express as px
+import os
+import time
 
 # === STEP 1: FETCH & CLEAN METADATA===
 # ==============CDC==============
@@ -17,7 +19,7 @@ def fetch_cdc_dataset_counts(start_year=2010):
     df["created_date"] = df["createdAt"].dt.date
     counts = df.groupby("created_date").size().reset_index(name="datasets_created")
     counts["Agency"] = "CDC"
-    counts.to_csv("cdc_dataset_counts.csv", index=False)
+    counts.to_csv("data/cdc_dataset_counts.csv", index=False)
     print("✅ CDC fetch complete ✔️")
 
 # ===============epa===============
@@ -45,7 +47,7 @@ def fetch_epa_dataset_counts(start_year=2010):
     df["created_date"] = df["createdAt"].dt.date
     counts = df.groupby("created_date").size().reset_index(name="datasets_created")
     counts["Agency"] = "EPA"
-    counts.to_csv("epa_dataset_counts.csv", index=False)
+    counts.to_csv("data/epa_dataset_counts.csv", index=False)
     print("✅ EPA fetch complete ✔️")
 
 # ========usda=============
@@ -80,13 +82,11 @@ def fetch_usda_dataset_counts(start_year=2010):
 
     counts = df.groupby("created_date").size().reset_index(name="datasets_created")
     counts["Agency"] = "USDA"
-    counts.to_csv("usda_dataset_counts.csv", index=False)
+    counts.to_csv("data/usda_dataset_counts.csv", index=False)
 
     print("✅ USDA fetch complete ✔️")
 
 # ==== noaa === #
-import time
-
 def fetch_noaa_created_timestamps(start_year=2010):
     base_url = "https://catalog.data.gov"
     org_name = "noaa-gov"
@@ -134,17 +134,12 @@ def fetch_noaa_created_timestamps(start_year=2010):
     df["month"] = df["createdAt"].dt.to_period("M").dt.to_timestamp()
     monthly = df.groupby("month").size().reset_index(name="datasets_created")
     monthly["Agency"] = "NOAA"
-    monthly.to_csv("noaa_monthly_dataset_counts.csv", index=False)
-
-    return monthly
+    monthly.to_csv("data/noaa_monthly_dataset_counts.csv", index=False)
     print("✅ NOAA fetch complete ✔️")
+    return monthly
 
-# ======= ckan data (doj, nsf) started in 2019 ========
+# ======= ckan data (doj, nsf - started in 2019, census 2010 ========
 def fetch_ckan_dataset_counts(agency_key, output_csv, start_year=2010):
-    import requests
-    import pandas as pd
-    import os
-
     base_url = "https://catalog.data.gov"
     search_url = f"{base_url}/api/3/action/package_search"
 
@@ -207,46 +202,51 @@ def clean_agency_file_by_month(filepath, agency_name):
 
 # CDC (Socrata)
 fetch_cdc_dataset_counts()
-cdc_monthly = clean_agency_file_by_month("cdc_dataset_counts.csv", "CDC")
-cdc_monthly.to_csv("cdc_monthly.csv", index=False)
+cdc_monthly = clean_agency_file_by_month("data/cdc_dataset_counts.csv", "CDC")
+cdc_monthly.to_csv("data/cdc_monthly.csv", index=False)
 print("✅ CDC monthly summary saved to cdc_monthly.csv")
 
 # EPA
 fetch_epa_dataset_counts()
-epa_monthly = clean_agency_file_by_month("epa_dataset_counts.csv", "EPA")
-epa_monthly.to_csv("epa_monthly.csv", index=False)
+epa_monthly = clean_agency_file_by_month("data/epa_dataset_counts.csv", "EPA")
+epa_monthly.to_csv("data/epa_monthly.csv", index=False)
 print("✅ EPA monthly summary saved to epa_monthly.csv")
 
 # HHS
-fetch_ckan_dataset_counts("hhs-gov", "HHS")
-hhs_monthly = clean_agency_file_by_month("hhs_dataset_counts.csv", "HHS")
-hhs_monthly.to_csv("hhs_monthly.csv", index=False)
+fetch_ckan_dataset_counts("hhs-gov", "data/hhs_dataset_counts.csv")
+hhs_monthly = clean_agency_file_by_month("data/hhs_dataset_counts.csv", "HHS")
+hhs_monthly.to_csv("data/hhs_monthly.csv", index=False)
 print("✅ HHS monthly summary saved to hhs_monthly.csv")
 
 # DOJ
-fetch_ckan_dataset_counts("doj-gov", "DOJ")
-doj_monthly = clean_agency_file_by_month("doj_dataset_counts.csv", "DOJ")
-doj_monthly.to_csv("doj_monthly.csv", index=False)
+fetch_ckan_dataset_counts("doj-gov", "data/doj_dataset_counts.csv")
+doj_monthly = clean_agency_file_by_month("data/doj_dataset_counts.csv", "DOJ")
+doj_monthly.to_csv("data/doj_monthly.csv", index=False)
 print("✅ DOJ monthly summary saved to doj_monthly.csv")
 
 # USDA
-fetch_ckan_dataset_counts("usda-gov", "USDA")
-usda_monthly = clean_agency_file_by_month("usda_dataset_counts.csv", "USDA")
-usda_monthly.to_csv("usda_monthly.csv", index=False)
+fetch_ckan_dataset_counts("usda-gov", "data/usda_dataset_counts.csv")
+usda_monthly = clean_agency_file_by_month("data/usda_dataset_counts.csv", "USDA")
+usda_monthly.to_csv("data/usda_monthly.csv", index=False)
 print("✅ USDA monthly summary saved to usda_monthly.csv")
 
 # NSF
-fetch_ckan_dataset_counts("nsf-gov", "NSF")
-nsf_monthly = clean_agency_file_by_month("nsf_dataset_counts.csv", "NSF")
-nsf_monthly.to_csv("nsf_monthly.csv", index=False)
+fetch_ckan_dataset_counts("nsf-gov", "data/nsf_dataset_counts.csv")
+nsf_monthly = clean_agency_file_by_month("data/nsf_dataset_counts.csv", "NSF")
+nsf_monthly.to_csv("data/nsf_monthly.csv", index=False)
 print("✅ NSF monthly summary saved to nsf_monthly.csv")
 
 #NOAA
 noaa_data = fetch_noaa_created_timestamps()
-noaa_data.to_csv("noaa_monthly.csv", index=False)
+noaa_data.to_csv("data/noaa_monthly.csv", index=False)
 print("✅ NOAA monthly summary saved to noaa_monthly.csv")
 
-import os
+#census
+fetch_ckan_dataset_counts("census-gov", "data/census_monthly.csv")
+census_monthly = clean_agency_file_by_month("data/census_monthly.csv", "Census")
+census_monthly.to_csv("data/census_monthly.csv", index=False)
+print("✅ Census monthly summary saved to census_monthly.csv")
+
 
 # Helper to safely load a CSV
 def safe_read(path):
@@ -264,7 +264,8 @@ dataframes = [
     safe_read("doj_monthly.csv"),
     safe_read("usda_monthly.csv"),
     safe_read("nsf_monthly.csv"),
-    safe_read("noaa_monthly.csv")
+    safe_read("noaa_monthly.csv"),
+    safe_read("census_monthly.csv")
 ]
 
 # Filter out None entries
@@ -275,5 +276,5 @@ combined_df = pd.concat(dataframes, ignore_index=True)
 combined_df["normalized"] = combined_df.groupby("Agency")["datasets_created"].transform(
     lambda x: x / x.max() if x.max() > 0 else 0
 )
-combined_df.to_csv("combined_monthly.csv", index=False)
+combined_df.to_csv("data/combined_monthly.csv", index=False)
 print("✅ combined_monthly complete ✔️")
