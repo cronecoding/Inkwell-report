@@ -72,7 +72,7 @@ app.layout = html.Div(
                     dcc.Dropdown(
                         id='single-agency',
                         options=[{"label": agency, "value": agency} for agency in [
-                            "CDC", "DOJ", "EPA", "HHS", "NSF", "NOAA", "USDA"
+                            "CDC", "Census", "DOJ", "EPA", "HHS", "NSF", "NOAA", "USDA"
                                 ]],
                         value="CDC",
                         clearable=False,
