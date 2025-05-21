@@ -86,23 +86,23 @@ def fetch_usda_dataset_counts(start_year=2010):
 
     print("✅ USDA fetch complete ✔️")
 
-# ==== noaa === #
+#=== NOAA ===#
 def fetch_noaa_created_timestamps(start_year=2010):
     base_url = "https://catalog.data.gov"
     org_name = "noaa-gov"
     search_url = f"{base_url}/api/3/action/package_search"
-
-    # Get total count of datasets
-    init = requests.get(search_url, params={"fq": f"organization:{org_name}", "rows": 0})
-    total = init.json()["result"]["count"]
-    print(f"Total NOAA datasets available: {total}")
-
-    start = 0
     batch_size = 1000
     created_dates = []
 
-    while start < total:
-        params = {"fq": f"organization:{org_name}", "rows": batch_size, "start": start}
+    print("🔍 Fetching ALL NOAA datasets (filtering locally)...")
+
+    start = 0
+    while True:
+        params = {
+            "fq": f"organization:{org_name}",
+            "rows": batch_size,
+            "start": start
+        }
 
         for attempt in range(3):
             try:
@@ -113,7 +113,7 @@ def fetch_noaa_created_timestamps(start_year=2010):
                 print(f"Attempt {attempt + 1} failed at start={start}: {e}")
                 time.sleep(5 * (attempt + 1))
         else:
-            print(f"Skipping batch at start={start} after 3 failed attempts.")
+            print(f"⚠️ Skipping batch at start={start} after 3 failed attempts.")
             start += batch_size
             continue
 
@@ -121,20 +121,27 @@ def fetch_noaa_created_timestamps(start_year=2010):
         if not batch:
             break
 
-        # Just get timestamps
-        created_dates.extend([item["metadata_created"] for item in batch if "metadata_created" in item])
+        created_dates.extend([
+            item["metadata_created"]
+            for item in batch
+            if "metadata_created" in item
+        ])
 
-        print(f"Fetched {start + len(batch)} / {total}")
+        print(f"✅ Fetched {start + len(batch)} records so far...")
         start += batch_size
-        time.sleep(1)  # Be nice to the server
+        time.sleep(1)
 
-    # Convert to DataFrame and group by month
+    if not created_dates:
+        print("⚠️ No NOAA data fetched.")
+        return pd.DataFrame()
+
     df = pd.DataFrame({"createdAt": pd.to_datetime(created_dates, errors="coerce")})
     df = df[df["createdAt"].dt.year >= start_year]
     df["month"] = df["createdAt"].dt.to_period("M").dt.to_timestamp()
     monthly = df.groupby("month").size().reset_index(name="datasets_created")
     monthly["Agency"] = "NOAA"
     monthly.to_csv("data/noaa_monthly_dataset_counts.csv", index=False)
+
     print("✅ NOAA fetch complete ✔️")
     return monthly
 
@@ -183,7 +190,6 @@ def fetch_ckan_dataset_counts(agency_key, output_csv, start_year=2010):
 
     counts = df.groupby("created_date").size().reset_index(name="datasets_created")
     counts["Agency"] = agency_key.upper()
-
     counts.to_csv(output_csv, index=False)
     print(f"✅ {agency_key.upper()} fetch complete — {len(df)} records processed")
 
@@ -199,6 +205,11 @@ def clean_agency_file_by_month(filepath, agency_name):
     return monthly_counts
 
 # === RUN FETCH + CLEAN + SAVE (ALL AGENCIES, 2010–present) ===
+
+#NOAA
+noaa_data = fetch_noaa_created_timestamps()
+noaa_data.to_csv("data/noaa_monthly.csv", index=False)
+print("✅ NOAA monthly summary saved to noaa_monthly.csv")
 
 # CDC (Socrata)
 fetch_cdc_dataset_counts()
@@ -236,11 +247,6 @@ nsf_monthly = clean_agency_file_by_month("data/nsf_dataset_counts.csv", "NSF")
 nsf_monthly.to_csv("data/nsf_monthly.csv", index=False)
 print("✅ NSF monthly summary saved to nsf_monthly.csv")
 
-#NOAA
-noaa_data = fetch_noaa_created_timestamps()
-noaa_data.to_csv("data/noaa_monthly.csv", index=False)
-print("✅ NOAA monthly summary saved to noaa_monthly.csv")
-
 #census
 fetch_ckan_dataset_counts("census-gov", "data/census_monthly.csv")
 census_monthly = clean_agency_file_by_month("data/census_monthly.csv", "Census")
@@ -258,14 +264,14 @@ def safe_read(path):
 
 # Only include valid, non-empty files
 dataframes = [
-    safe_read("cdc_monthly.csv"),
-    safe_read("epa_monthly.csv"),
-    safe_read("hhs_monthly.csv"),
-    safe_read("doj_monthly.csv"),
-    safe_read("usda_monthly.csv"),
-    safe_read("nsf_monthly.csv"),
-    safe_read("noaa_monthly.csv"),
-    safe_read("census_monthly.csv")
+    safe_read("data/cdc_monthly.csv"),
+    safe_read("data/epa_monthly.csv"),
+    safe_read("data/hhs_monthly.csv"),
+    safe_read("data/doj_monthly.csv"),
+    safe_read("data/usda_monthly.csv"),
+    safe_read("data/nsf_monthly.csv"),
+    safe_read("data/noaa_monthly.csv"),
+    safe_read("data/census_monthly.csv")
 ]
 
 # Filter out None entries
