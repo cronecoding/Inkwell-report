@@ -27,7 +27,7 @@ def fetch_epa_dataset_counts(start_year=2010):
     base_url = "https://catalog.data.gov"
     org_name = "epa-gov"
     search_url = f"{base_url}/api/3/action/package_search"
-    
+
     params = {"fq": f"organization:{org_name}", "rows": 1000, "start": 0}
     all_results = []
 
@@ -40,7 +40,7 @@ def fetch_epa_dataset_counts(start_year=2010):
         params["start"] += len(results)
         if len(results) < 1000:
             break
-            
+
     created_dates = [r.get("metadata_created") for r in all_results if r.get("metadata_created")]
     df = pd.DataFrame({"createdAt": pd.to_datetime(created_dates, errors="coerce")})
     df = df[df["createdAt"].dt.year >= start_year]
@@ -55,10 +55,10 @@ def fetch_usda_dataset_counts(start_year=2010):
     base_url = "https://catalog.data.gov"
     org_name = "usda-gov"
     search_url = f"{base_url}/api/3/action/package_search"
-    
+
     params = {
         "fq": f"organization:{org_name}",
-        "sort": "metadata_created asc",  # optional, to see earliest dates
+        "sort": "metadata_created asc",
         "rows": 1000,
         "start": 0
     }
@@ -156,11 +156,9 @@ def fetch_ckan_dataset_counts(agency_key, output_csv, start_year=2010):
         "start": 0
     }
 
-    seen_ids = set()
     created_dates = []
-
     print(f"🔍 Fetching CKAN data for: {agency_key}")
-    
+
     while True:
         r = requests.get(search_url, params=params)
         results = r.json().get("result", {}).get("results", [])
@@ -169,10 +167,8 @@ def fetch_ckan_dataset_counts(agency_key, output_csv, start_year=2010):
             break
 
         for r in results:
-            dataset_id = r.get("id")
             created_str = r.get("metadata_created")
-            if dataset_id and created_str and dataset_id not in seen_ids:
-                seen_ids.add(dataset_id)
+            if created_str:
                 created_dates.append(created_str)
 
         params["start"] += len(results)
@@ -209,25 +205,25 @@ def clean_agency_file_by_month(filepath, agency_name):
 #NOAA
 #noaa_data = fetch_noaa_created_timestamps()
 #noaa_data.to_csv("data/noaa_monthly.csv", index=False)
-print("✅ NOAA monthly summary saved to noaa_monthly.csv")
+#print("✅ NOAA monthly summary saved to noaa_monthly.csv")
 
 # CDC (Socrata)
-fetch_cdc_dataset_counts()
-cdc_monthly = clean_agency_file_by_month("data/cdc_dataset_counts.csv", "CDC")
-cdc_monthly.to_csv("data/cdc_monthly.csv", index=False)
-print("✅ CDC monthly summary saved to cdc_monthly.csv")
+#fetch_cdc_dataset_counts()
+#cdc_monthly = clean_agency_file_by_month("data/cdc_dataset_counts.csv", "CDC")
+#cdc_monthly.to_csv("data/cdc_monthly.csv", index=False)
+#print("✅ CDC monthly summary saved to cdc_monthly.csv")
 
 # EPA
-#fetch_epa_dataset_counts()
-#epa_monthly = clean_agency_file_by_month("data/epa_dataset_counts.csv", "EPA")
-#epa_monthly.to_csv("data/epa_monthly.csv", index=False)
-#print("✅ EPA monthly summary saved to epa_monthly.csv")
+fetch_epa_dataset_counts()
+epa_monthly = clean_agency_file_by_month("data/epa_dataset_counts.csv", "EPA")
+epa_monthly.to_csv("data/epa_monthly.csv", index=False)
+print("✅ EPA monthly summary saved to epa_monthly.csv")
 
 # HHS
-#fetch_ckan_dataset_counts("hhs-gov", "data/hhs_dataset_counts.csv")
-#hhs_monthly = clean_agency_file_by_month("data/hhs_dataset_counts.csv", "HHS")
-#hhs_monthly.to_csv("data/hhs_monthly.csv", index=False)
-#print("✅ HHS monthly summary saved to hhs_monthly.csv")
+fetch_ckan_dataset_counts("hhs-gov", "data/hhs_dataset_counts.csv")
+hhs_monthly = clean_agency_file_by_month("data/hhs_dataset_counts.csv", "HHS")
+hhs_monthly.to_csv("data/hhs_monthly.csv", index=False)
+print("✅ HHS monthly summary saved to hhs_monthly.csv")
 
 # DOJ
 fetch_ckan_dataset_counts("doj-gov", "data/doj_dataset_counts.csv")
@@ -236,10 +232,10 @@ doj_monthly.to_csv("data/doj_monthly.csv", index=False)
 print("✅ DOJ monthly summary saved to doj_monthly.csv")
 
 # USDA
-#fetch_ckan_dataset_counts("usda-gov", "data/usda_dataset_counts.csv")
-#usda_monthly = clean_agency_file_by_month("data/usda_dataset_counts.csv", "USDA")
-#usda_monthly.to_csv("data/usda_monthly.csv", index=False)
-#print("✅ USDA monthly summary saved to usda_monthly.csv")
+fetch_ckan_dataset_counts("usda-gov", "data/usda_dataset_counts.csv")
+usda_monthly = clean_agency_file_by_month("data/usda_dataset_counts.csv", "USDA")
+usda_monthly.to_csv("data/usda_monthly.csv", index=False)
+print("✅ USDA monthly summary saved to usda_monthly.csv")
 
 # NSF
 fetch_ckan_dataset_counts("nsf-gov", "data/nsf_dataset_counts.csv")
