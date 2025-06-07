@@ -207,8 +207,8 @@ def clean_agency_file_by_month(filepath, agency_name):
 # === RUN FETCH + CLEAN + SAVE (ALL AGENCIES, 2010–present) ===
 
 #NOAA
-noaa_data = fetch_noaa_created_timestamps()
-noaa_data.to_csv("data/noaa_monthly.csv", index=False)
+#noaa_data = fetch_noaa_created_timestamps()
+#noaa_data.to_csv("data/noaa_monthly.csv", index=False)
 print("✅ NOAA monthly summary saved to noaa_monthly.csv")
 
 # CDC (Socrata)
@@ -218,16 +218,16 @@ cdc_monthly.to_csv("data/cdc_monthly.csv", index=False)
 print("✅ CDC monthly summary saved to cdc_monthly.csv")
 
 # EPA
-fetch_epa_dataset_counts()
-epa_monthly = clean_agency_file_by_month("data/epa_dataset_counts.csv", "EPA")
-epa_monthly.to_csv("data/epa_monthly.csv", index=False)
-print("✅ EPA monthly summary saved to epa_monthly.csv")
+#fetch_epa_dataset_counts()
+#epa_monthly = clean_agency_file_by_month("data/epa_dataset_counts.csv", "EPA")
+#epa_monthly.to_csv("data/epa_monthly.csv", index=False)
+#print("✅ EPA monthly summary saved to epa_monthly.csv")
 
 # HHS
-fetch_ckan_dataset_counts("hhs-gov", "data/hhs_dataset_counts.csv")
-hhs_monthly = clean_agency_file_by_month("data/hhs_dataset_counts.csv", "HHS")
-hhs_monthly.to_csv("data/hhs_monthly.csv", index=False)
-print("✅ HHS monthly summary saved to hhs_monthly.csv")
+#fetch_ckan_dataset_counts("hhs-gov", "data/hhs_dataset_counts.csv")
+#hhs_monthly = clean_agency_file_by_month("data/hhs_dataset_counts.csv", "HHS")
+#hhs_monthly.to_csv("data/hhs_monthly.csv", index=False)
+#print("✅ HHS monthly summary saved to hhs_monthly.csv")
 
 # DOJ
 fetch_ckan_dataset_counts("doj-gov", "data/doj_dataset_counts.csv")
@@ -236,10 +236,10 @@ doj_monthly.to_csv("data/doj_monthly.csv", index=False)
 print("✅ DOJ monthly summary saved to doj_monthly.csv")
 
 # USDA
-fetch_ckan_dataset_counts("usda-gov", "data/usda_dataset_counts.csv")
-usda_monthly = clean_agency_file_by_month("data/usda_dataset_counts.csv", "USDA")
-usda_monthly.to_csv("data/usda_monthly.csv", index=False)
-print("✅ USDA monthly summary saved to usda_monthly.csv")
+#fetch_ckan_dataset_counts("usda-gov", "data/usda_dataset_counts.csv")
+#usda_monthly = clean_agency_file_by_month("data/usda_dataset_counts.csv", "USDA")
+#usda_monthly.to_csv("data/usda_monthly.csv", index=False)
+#print("✅ USDA monthly summary saved to usda_monthly.csv")
 
 # NSF
 fetch_ckan_dataset_counts("nsf-gov", "data/nsf_dataset_counts.csv")
@@ -248,10 +248,10 @@ nsf_monthly.to_csv("data/nsf_monthly.csv", index=False)
 print("✅ NSF monthly summary saved to nsf_monthly.csv")
 
 #census
-fetch_ckan_dataset_counts("census-gov", "data/census_monthly.csv")
-census_monthly = clean_agency_file_by_month("data/census_monthly.csv", "Census")
-census_monthly.to_csv("data/census_monthly.csv", index=False)
-print("✅ Census monthly summary saved to census_monthly.csv")
+#fetch_ckan_dataset_counts("census-gov", "data/census_monthly.csv")
+#census_monthly = clean_agency_file_by_month("data/census_monthly.csv", "Census")
+#census_monthly.to_csv("data/census_monthly.csv", index=False)
+#print("✅ Census monthly summary saved to census_monthly.csv")
 
 
 # Helper to safely load a CSV
