@@ -17,7 +17,7 @@ def fetch_cdc_socrata(start_year=2010):
     df = df[df["createdAt"].dt.year >= start_year]
     df["created_date"] = df["createdAt"].dt.date
     counts = df.groupby("created_date").size().reset_index(name="datasets_created")
-    counts["Agency"] = "CDC (Socrata)"
+    counts["Agency"] = "CDC"
     print("✅ CDC Socrata fetch complete ✔️")
     return counts
 
@@ -38,7 +38,7 @@ def fetch_mmwr_rss():
     df = pd.DataFrame(dates, columns=["created_date"])
     df["datasets_created"] = 1
     df = df.groupby("created_date").size().reset_index(name="datasets_created")
-    df["Agency"] = "CDC (MMWR)"
+    df["Agency"] = "CDC"
     print(f"✅ MMWR RSS pulled {len(df)} entries ✔️")
     return df
 
@@ -54,7 +54,7 @@ def fetch_vaers_release():
             date_match = re.search(r'(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, \d{4}', text)
             if date_match:
                 date = datetime.strptime(date_match.group(), "%B %d, %Y").date()
-                df = pd.DataFrame([{"created_date": date, "datasets_created": 1, "Agency": "CDC (VAERS)"}])
+                df = pd.DataFrame([{"created_date": date, "datasets_created": 1, "Agency": "CDC"}])
                 print(f"✅ VAERS update found: {date}")
                 return df
         except Exception:
@@ -86,7 +86,7 @@ def fetch_vsrr_release_dates():
     df = pd.DataFrame(dates, columns=["created_date"])
     df["datasets_created"] = 1
     df = df.groupby("created_date").size().reset_index(name="datasets_created")
-    df["Agency"] = "CDC (VSRR)"
+    df["Agency"] = "CDC"
     print("✅ VSRR scrape complete ✔️")
     return df
 
