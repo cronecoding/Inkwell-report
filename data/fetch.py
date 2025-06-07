@@ -1,8 +1,8 @@
 import pandas as pd
 import requests
+import plotly.express as px
 import dash
 from dash import dcc, html, Input, Output
-import plotly.express as px
 import os
 import time
 
