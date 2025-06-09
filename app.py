@@ -20,7 +20,26 @@ app.layout = html.Div(
     },
     children=[
         html.H1("Inkwell Global Report: Dataset Transparency Trends", style={'textAlign': 'center'}),
+        html.Div(
+            children=[
+                html.A(
+                    "Learn more",
+                    href="https://inkwell.report/services.html",
+                    target="_blank",
+                    style={
+                        "color": "#8A9A5B",
+                        "textDecoration": "none",
+                        "fontWeight": "bold",
+                        "fontSize": "16px",
+                        "marginTop": "10px",
+                        "display": "inline-block"
+                    }
+                )
+            ],
+            style={"textAlign": "center", "marginBottom": "30px"}
+        ),
 
+        html.Label("Select Time Window:", style={"marginTop": "10px"}),
         html.Label("Select Time Window:", style={"marginTop": "10px"}),
         dcc.Dropdown(
             id='month-window',
@@ -122,7 +141,23 @@ app.layout = html.Div(
                 "margin": "40px auto 0",  # top, auto-sides, no bottom
                 "height": "60px"
             }
-        )
+        ),
+        html.Div(
+            children=[
+            html.A(
+                    "Contact Us",
+                    href="mailto:contact@inkwell.report",
+                    style={
+                        "color": "#8A9A5B",
+                        "textDecoration": "underline",
+                        "fontWeight": "600",
+                        "fontSize": "16px",
+                        "display": "inline-block",
+                        "marginTop": "10px"
+                    }
+                )
+            ],
+            style={"textAlign": "center", "marginBottom": "40px"}
     ]
     )
 
