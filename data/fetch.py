@@ -8,19 +8,7 @@ import time
 
 # === STEP 1: FETCH & CLEAN METADATA===
 # ==============CDC==============
-def fetch_cdc_dataset_counts(start_year=2010):
-    url = "https://data.cdc.gov/api/views/metadata/v1"
-    r = requests.get(url)
-    raw_data = r.json()
-    df = pd.DataFrame(raw_data)
-    df["createdAt"] = pd.to_datetime(df["createdAt"], errors="coerce")
-    df = df.dropna(subset=["createdAt"])
-    df = df[df["createdAt"].dt.year >= start_year]
-    df["created_date"] = df["createdAt"].dt.date
-    counts = df.groupby("created_date").size().reset_index(name="datasets_created")
-    counts["Agency"] = "CDC"
-    counts.to_csv("data/cdc_dataset_counts.csv", index=False)
-    print("✅ CDC fetch complete ✔️")
+from fetch_cdc import fetch_cdc_datasets_counts
 
 # ===============epa===============
 def fetch_epa_dataset_counts(start_year=2010):
@@ -208,10 +196,10 @@ def clean_agency_file_by_month(filepath, agency_name):
 #print("✅ NOAA monthly summary saved to noaa_monthly.csv")
 
 # CDC (Socrata)
-#fetch_cdc_dataset_counts()
-#cdc_monthly = clean_agency_file_by_month("data/cdc_dataset_counts.csv", "CDC")
-#cdc_monthly.to_csv("data/cdc_monthly.csv", index=False)
-#print("✅ CDC monthly summary saved to cdc_monthly.csv")
+fetch_cdc_datasets_counts()
+cdc_monthly = clean_agency_file_by_month("data/cdc_dataset_counts.csv", "CDC")
+cdc_monthly.to_csv("data/cdc_monthly.csv", index=False)
+print("✅ CDC monthly summary saved to cdc_monthly.csv")
 
 # EPA
 fetch_epa_dataset_counts()

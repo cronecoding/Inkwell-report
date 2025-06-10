@@ -2,9 +2,13 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 from datetime import datetime
+from datetime import date
 import os
 import re
 import feedparser
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+from collections import defaultdict
 
 # === STEP 1: Fetch CDC Socrata datasets ===
 def fetch_cdc_socrata(start_year=2010):
@@ -43,30 +47,37 @@ def fetch_mmwr_rss():
     return df
 
 # === STEP 3: Scrape VAERS release date from CDC Wonder ===
-def fetch_vaers_release():
-    url = "https://wonder.cdc.gov/vaers.html"
-    r = requests.get(url)
+def fetch_vaers_dataset_counts():
+    url = "https://vaers.hhs.gov/data/datasets.html"
+    r = requests.get(url, verify = False)
     soup = BeautifulSoup(r.text, "html.parser")
 
-    text_blocks = soup.find_all(string=re.compile(r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, \d{4}\b'))
-    for text in text_blocks:
-        try:
-            date_match = re.search(r'(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, \d{4}', text)
-            if date_match:
-                date = datetime.strptime(date_match.group(), "%B %d, %Y").date()
-                df = pd.DataFrame([{"created_date": date, "datasets_created": 1, "Agency": "CDC"}])
-                print(f"✅ VAERS update found: {date}")
-                return df
-        except Exception:
-            continue
+    # Match things like 2023VAERSDATA.csv, 2024VAERSVAX.csv, etc.
+    pattern = re.compile(r'(20\d{2})VAERS(?:DATA|VAX|SYMPTOMS)\.csv', re.IGNORECASE)
+    year_counts = defaultdict(int)
 
-    print("⚠️ No VAERS release date found.")
-    return pd.DataFrame(columns=["created_date", "datasets_created", "Agency"])
+    for link in soup.find_all("a", href=True):
+        match = pattern.search(link["href"])
+        if match:
+            year = match.group(1)
+            year_counts[year] += 1
+
+    if year_counts:
+        df = pd.DataFrame([
+            {"created_date": date.today(), "year": int(year), "datasets_created": count, "Agency": "CDC"}
+            for year, count in sorted(year_counts.items())
+        ])
+        print("✅ VAERS dataset counts by year:")
+        print(df)
+        return df
+    else:
+        print("⚠️ No VAERS datasets found on page.")
+        return pd.DataFrame(columns=["created_date", "year", "datasets_created", "Agency"])
 
 # === STEP 4: Scrape VSRR release dates from NCHS ===
 def fetch_vsrr_release_dates():
     url = "https://www.cdc.gov/nchs/nvss/vsrr.htm"
-    r = requests.get(url)
+    r = requests.get(url, verify=False)
     soup = BeautifulSoup(r.text, "html.parser")
 
     links = soup.select("section.card-body a")
@@ -91,10 +102,10 @@ def fetch_vsrr_release_dates():
     return df
 
 # === STEP 5: Combine, save daily, and generate monthly summary ===
-def save_combined_cdc_data(output_path_daily="data/cdc_dataset_counts.csv", output_path_monthly="data/cdc_monthly.csv"):
+def fetch_cdc_datasets_counts(output_path_daily="data/cdc_dataset_counts.csv", output_path_monthly="data/cdc_monthly.csv"):
     socrata_df = fetch_cdc_socrata()
     mmwr_df = fetch_mmwr_rss()
-    vaers_df = fetch_vaers_release()
+    vaers_df = fetch_vaers_dataset_counts()
     vsrr_df = fetch_vsrr_release_dates()
 
     combined = pd.concat([socrata_df, mmwr_df, vaers_df, vsrr_df], ignore_index=True)
@@ -103,12 +114,6 @@ def save_combined_cdc_data(output_path_daily="data/cdc_dataset_counts.csv", outp
     combined.to_csv(output_path_daily, index=False)
     print(f"✅ Combined CDC daily data saved to {output_path_daily}")
 
-    # Convert to monthly summary
-    combined["month"] = pd.to_datetime(combined["created_date"]).values.astype("datetime64[M]")
-    monthly = combined.groupby(["month", "Agency"]).agg({"datasets_created": "sum"}).reset_index()
-    monthly.to_csv(output_path_monthly, index=False)
-    print(f"✅ CDC monthly summary saved to {output_path_monthly}")
-
 # === Run when called directly ===
 if __name__ == "__main__":
-    save_combined_cdc_data()
+    fetch_cdc_datasets_counts()
