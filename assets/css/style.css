@@ -831,3 +831,43 @@ footer {
   background-color: var(--green) !important;
   color: var(--black) !important;
 }
+
+/* Tag styling */
+.tag-links {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid #ccc;
+  text-align: right;
+}
+
+.tag-links h3 {
+  display: none;
+}
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.tag-list li {
+  margin: 0;
+}
+
+.tag-list a.tag {
+  display: inline-block;
+  background-color: var(--green);
+  color: var(--white);
+  padding: 0.3em 0.8em;
+  font-size: 0.85rem;
+  border-radius: 2em;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.tag-list a.tag:hover {
+  text-decoration: underline;
+}
