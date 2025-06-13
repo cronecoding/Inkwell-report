@@ -13,5 +13,5 @@ tags:
   - 2022
   - masters-work
   - pdf
-redirect_to: /assets/pdf/inkwell%20biostat%20RK.pdf
+redirect_to: /assets/pdf/inkwell_biostat_RK.pdf
 ---
