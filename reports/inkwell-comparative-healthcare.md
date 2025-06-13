@@ -13,5 +13,5 @@ tags:
   - masters-work
   - 2023
   - pdf
-redirect_to: /assets/pdf/inkwell_comparative_health_care_system_brief_RK.pdf
+redirect_to: /assets/pdf/inkwell_comparative_healthcare_system_brief_RK.pdf
 ---
