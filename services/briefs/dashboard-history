@@ -1,0 +1,76 @@
+---
+layout: default
+title: History of Federal Public Data
+description: This brief outlines the agencies behind U.S. federal public data, how people use it, and what happens when datasets disappear. From air quality to incarceration rates, public data is the quiet infrastructure that supports democracy—and it's increasingly at risk.
+permalink: /services/briefs/history-of-federal-public-data/
+tags:
+  - public-data
+  - transparency
+  - federal-agencies
+  - data.gov
+  - metadata
+  - civic-infrastructure
+  - open-government
+  - public-health
+  - policy-brief
+  - data-erosion
+  - 2025
+image: /assets/images/logo.jpg
+---
+
+<main class="prose mx-auto px-4 py-10">
+  <h1>📊 History of Federal Public Data: Past, Present, and Uncertain Futures</h1>
+  <p>Public data is a quiet cornerstone of U.S. democracy. Whether tracking air quality, monitoring disease outbreaks, or evaluating disparities in criminal sentencing, the ability to access timely and reliable federal data empowers citizens, researchers, and policymakers alike.</p>
+  <p>The Inkwell Global Report dashboard monitors data availability across key agencies that shape public policy and lived experience. Below is a brief introduction to each agency we track, followed by a look at the history of Data.gov and what’s at stake for its future.</p>
+
+  <hr>
+
+  <h2>🏛️ The Agencies We Track</h2>
+  <ul>
+    <li><strong>CDC – Centers for Disease Control and Prevention:</strong> <a href="https://www.cdc.gov/datastatistics/">CDC Data & Statistics</a>, <a href="https://www.cdc.gov/surveillance/data-modernization/index.html">Data Modernization Initiative</a></li>
+    <li><strong>Census Bureau:</strong> <a href="https://data.census.gov/">Census Data Tools</a>, <a href="https://www.census.gov/programs-surveys/acs/">American Community Survey</a></li>
+    <li><strong>DOJ – Department of Justice:</strong> <a href="https://bjs.ojp.gov/data-collections">BJS Data Collections</a>, <a href="https://catalog.data.gov/organization/justice-gov">DOJ Data.gov Page</a></li>
+    <li><strong>EPA – Environmental Protection Agency:</strong> <a href="https://edg.epa.gov/">EPA Environmental Dataset Gateway</a>, <a href="https://www.epa.gov/open">EPA Open Data</a></li>
+    <li><strong>HHS – Department of Health and Human Services:</strong> <a href="https://protect-public.hhs.gov/">HHS Protect Public Data Hub</a>, <a href="https://healthdata.gov/">HealthData.gov</a></li>
+    <li><strong>NSF – National Science Foundation:</strong> <a href="https://ncses.nsf.gov/">NCSES Data Tools</a>, <a href="https://catalog.data.gov/organization/nsf-gov">NSF Data.gov Page</a></li>
+    <li><strong>NOAA – National Oceanic and Atmospheric Administration:</strong> <a href="https://www.ncei.noaa.gov/">NCEI Data Access</a>, <a href="https://www.noaa.gov/data">NOAA Open Data</a></li>
+    <li><strong>USDA – U.S. Department of Agriculture:</strong> <a href="https://quickstats.nass.usda.gov/">NASS Quick Stats</a>, <a href="https://www.ers.usda.gov/data-products/">ERS Data Products</a></li>
+  </ul>
+
+  <h2>🔍 How People Use Federal Data</h2>
+  <ul>
+    <li>Public accountability and journalism</li>
+    <li>Scientific research and program evaluation</li>
+    <li>Local planning and emergency preparedness</li>
+    <li>Business innovation and environmental modeling</li>
+  </ul>
+  <p>When timely and trustworthy, data becomes the connective tissue between lived experience and responsive governance. When it’s missing, public trust erodes.</p>
+
+  <h2>🗂️ Data.gov and Other Public Data Sites</h2>
+  <p>Launched in 2009 under the Obama administration, <a href="https://data.gov">Data.gov</a> was built to consolidate access to federal datasets and spark civic tech innovation. At its peak, it linked to over 250,000 datasets. But maintenance and decentralization have since reduced its clarity and relevance.</p>
+  <p>Many agencies lack APIs or robust metadata. CDC data, for example, lives in several separate platforms. Inkwell monitors:</p>
+  <ul>
+    <li><strong>Socrata:</strong> disease surveillance, maternal health, mortality, and more</li>
+    <li><strong>MMWR:</strong> peer-reviewed data summaries, hard to quantify</li>
+    <li><strong>VAERS:</strong> vaccine safety reports with limited metadata</li>
+  </ul>
+  <p>Dashboard spikes reveal changes in data flow: metadata updates, compressed releases, or delayed uploads. These patterns show how fragile and fragmented federal data infrastructure can be.</p>
+
+  <h2>🔮 The Uncertain Future</h2>
+  <p>The <a href="https://www.congress.gov/bill/115th-congress/house-bill/4174">Foundations for Evidence-Based Policymaking Act (2018)</a> requires federal data to be open by default. But in practice:</p>
+  <ul>
+    <li>“Open” is interpreted inconsistently</li>
+    <li>Tools break and links die</li>
+    <li>Budgets and priorities shift without warning</li>
+  </ul>
+  <p>This isn’t just technical neglect—it’s civic erosion.</p>
+
+  <h2>🧭 Why We Track</h2>
+  <p>Inkwell Global Report monitors these systems to spot breakdowns in access:</p>
+  <ul>
+    <li>Are APIs stable?</li>
+    <li>Is metadata accessible?</li>
+    <li>Are links quietly disappearing?</li>
+  </ul>
+  <p>Public data is public infrastructure. We track it like the foundation it is.</p>
+</main>
