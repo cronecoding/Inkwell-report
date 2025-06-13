@@ -20,6 +20,17 @@
 
   <main>
     {{ content }}
+    
+    {% if page.tags %}
+      <section class="tag-links">
+        <h3>Tagged:</h3>
+        <ul class="tag-list">
+          {% for tag in page.tags %}
+            <li><a href="/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a></li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
   </main>
 
   {% include footer.html %}
