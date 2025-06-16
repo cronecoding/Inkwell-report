@@ -379,7 +379,7 @@ footer {
 
 .global-insights h3,
 .global-insights p,
-.global-insights a, {
+.global-insights a {
   margin-left: 0;
   text-align: left;
   max-width: 800px;
@@ -790,7 +790,7 @@ footer {
     min-height: 500px !important;
   }
 }
-}
+
 /* ===dash=== */
 
 .Select-option {
