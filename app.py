@@ -24,7 +24,7 @@ app.layout = html.Div(
             children=[
                 html.A(
                     "Learn more",
-                    href="https://inkwell.report/services.html",
+                    href="https://inkwell.report/services/dashboard/dashboard-history.html",
                     target="_blank",
                     style={
                         "color": "#8A9A5B",
