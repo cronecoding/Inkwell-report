@@ -58,6 +58,11 @@ a {
   transition: color 0.3s;
 }
 
+ul, ol {
+  margin: 0 2rem 1.5rem 2rem;
+  padding-left: 1.2rem;
+}
+
 a:hover {
   color: var(--white);         
   text-decoration: underline;  
