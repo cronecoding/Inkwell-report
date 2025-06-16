@@ -18,53 +18,58 @@ tags:
 image: /assets/images/logo.jpg
 ---
 
-<main class="report-content">
-  <h1>History of Federal Public Data: Past, Present, and Uncertain Futures</h1>
+<section class="team-intro">
+  <h2>History of Federal Public Data: Past, Present, and Uncertain Futures</h2>
+
   <p>Public data is a quiet cornerstone of U.S. democracy. Whether tracking air quality, monitoring disease outbreaks, or evaluating disparities in criminal sentencing, the ability to access timely and reliable federal data empowers citizens, researchers, and policymakers alike.</p>
+
   <p>The Inkwell Global Report dashboard monitors data availability across key agencies that shape public policy and lived experience. Below is a brief introduction to each agency we track, followed by a look at the history of Data.gov and what’s at stake for its future.</p>
 
-  <h2>The Agencies We Track</h2>
-  <h3>CDC – Centers for Disease Control and Prevention</h3>
-  <p>Maintains data on infectious disease, injury, maternal health, and other health related topics. Public health officials, journalists, and academic researchers rely on CDC dashboards and surveillance reports to inform both crisis response and long-term policy planning.</p>
+  <h3>The Agencies We Track</h3>
 
-  <h3>Census Bureau</h3>
-  <p>Provides population-level data critical to redistricting, federal funding, education planning, and social science. Census products like the American Community Survey (ACS) are foundational to nearly every demographic model in the U.S.</p>
+  <p><strong>CDC – Centers for Disease Control and Prevention</strong><br>
+  Maintains data on infectious disease, injury, maternal health, and other health related topics. Public health officials, journalists, and academic researchers rely on CDC dashboards and surveillance reports to inform both crisis response and long-term policy planning.</p>
 
-  <h3>DOJ – Department of Justice</h3>
-  <p>Collects and reports data on crime, incarceration, and law enforcement practices, often through the Bureau of Justice Statistics (BJS). These datasets are essential for understanding systemic inequities in the criminal legal system.</p>
+  <p><strong>Census Bureau</strong><br>
+  Provides population-level data critical to redistricting, federal funding, education planning, and social science. Census products like the American Community Survey (ACS) are foundational to nearly every demographic model in the U.S.</p>
 
-  <h3>EPA – Environmental Protection Agency</h3>
-  <p>Publishes environmental data on air and water quality, toxic releases, and climate indicators. EPA tools are used in environmental justice mapping, risk modeling, and compliance monitoring.</p>
+  <p><strong>DOJ – Department of Justice</strong><br>
+  Collects and reports data on crime, incarceration, and law enforcement practices, often through the Bureau of Justice Statistics (BJS). These datasets are essential for understanding systemic inequities in the criminal legal system.</p>
 
-  <h3>HHS – Department of Health and Human Services</h3>
-  <p>Oversees multiple sub-agencies like CMS and SAMHSA that release vital datasets on healthcare utilization, insurance coverage, opioid use, and mental health. Many HHS datasets underpin federal health equity and policy analysis efforts.</p>
+  <p><strong>EPA – Environmental Protection Agency</strong><br>
+  Publishes environmental data on air and water quality, toxic releases, and climate indicators. EPA tools are used in environmental justice mapping, risk modeling, and compliance monitoring.</p>
 
-  <h3>NSF – National Science Foundation</h3>
-  <p>Funds scientific research and collects metadata on STEM education, research outputs, and federal science funding. Its National Center for Science and Engineering Statistics (NCSES) is one of the most important sources of STEM workforce data.</p>
+  <p><strong>HHS – Department of Health and Human Services</strong><br>
+  Oversees multiple sub-agencies like CMS and SAMHSA that release vital datasets on healthcare utilization, insurance coverage, opioid use, and mental health. Many HHS datasets underpin federal health equity and policy analysis efforts.</p>
 
-  <h3>NOAA – National Oceanic and Atmospheric Administration</h3>
-  <p>Maintains climate, weather, and marine data. Used in everything from hurricane prediction and drought modeling to commercial shipping and fisheries management.</p>
+  <p><strong>NSF – National Science Foundation</strong><br>
+  Funds scientific research and collects metadata on STEM education, research outputs, and federal science funding. Its National Center for Science and Engineering Statistics (NCSES) is one of the most important sources of STEM workforce data.</p>
 
-  <h3>USDA – U.S. Department of Agriculture</h3>
-  <p>Manages agricultural production data, food insecurity statistics, rural economic indicators, and food safety alerts. USDA data supports food policy, market forecasts, and nutritional programs.</p>
+  <p><strong>NOAA – National Oceanic and Atmospheric Administration</strong><br>
+  Maintains climate, weather, and marine data. Used in everything from hurricane prediction and drought modeling to commercial shipping and fisheries management.</p>
 
-  <h2>🔍 How People Use Federal Data</h2>
-  <p>Open federal data powers:</p>
+  <p><strong>USDA – U.S. Department of Agriculture</strong><br>
+  Manages agricultural production data, food insecurity statistics, rural economic indicators, and food safety alerts. USDA data supports food policy, market forecasts, and nutritional programs.</p>
+
+  <h3>🔍 How People Use Federal Data</h3>
   <ul>
     <li>Public accountability and journalism</li>
     <li>Scientific research and program evaluation</li>
     <li>Local planning and emergency preparedness</li>
     <li>Business innovation and environmental modeling</li>
   </ul>
+
   <p>Data, when timely and trustworthy, becomes the connective tissue between lived experience and responsive governance. When it’s missing, broken, or hidden— public trust erodes.</p>
 
-  <h2>🗂️ Data.gov and other public data sites</h2>
+  <h3>🗂️ Data.gov and other public data sites</h3>
+
   <p>Data.gov launched in 2009 as a central portal for federal datasets under the Obama administration’s Open Government Initiative. It aimed to:</p>
   <ul>
     <li>Consolidate access to agency datasets</li>
     <li>Enable civic tech innovation</li>
     <li>Foster data-driven decision-making</li>
   </ul>
+
   <p>At its peak, Data.gov linked to over 250,000 datasets. But as agencies shifted to hosting their own dashboards and funding for data maintenance grew more fragile, the platform became harder to navigate—and less reflective of real-time data health.</p>
 
   <p>Unfortunately, there are many ways to present data and not all are easy to access. Several agencies with excellent data but do not have an API (application programming interface) or metadata that lets other computers easily understand what is there. Therefore, despite the desire for completeness, our counts of datasets released is only partial. For example, the CDC lists some of their data on data.gov but has other dedicated APIs that the Inkwell Global Report Transparency Dashboard pulls from instead. Specifically, Inkwell looks for CDC data and the Census Bureau directly. Despite having many datasets available, only Socrata (www.data.cdc.gov) from the CDC has an API which allows for easy access to data. The other sites are evaluated using the BeautifulSoup program to find information directly from their websites.</p>
@@ -73,21 +78,22 @@ image: /assets/images/logo.jpg
 
   <p>Other notable data spikes visible on the dashboard relates to November of 2024 when the CDC completed the Public Health Data Authority initiative that focused on modernizing their data process focusing on end-of-year publishing over a slow trickle through the months. The EPA has similar yearly data releases. There is a spike for HHS in November 2020 which represents loading previously separate data onto data.gov. The August 2021 spike for the DOJ was due to an updating its metadata across its series. March 2021, the USDA spiked when the Quick Stats database published a large compressed dataset. February 2021 marked the initial upload for the NSF and October 2, 2024 NOAA did a metadata update of their datasets causing a significant spike in dataset count. Finally the census main spike came from the release of the 2024 Census information. Despite these incongruencies, a pattern of data release becomes evident over time. Also important to remember that CDC data is gathered separately and extends the full 15 years covered where as the other organizations dataset releases can only be counted within the last 5 years despite data collection dating back significantly further.</p>
 
-  <h2>🔮 The Uncertain Future</h2>
-  <p>The Foundations for Evidence-Based Policymaking Act of 2018 requires federal agencies to develop data strategies and make data open by default. Yet:</p>
+  <h3>🔮 The Uncertain Future</h3>
   <ul>
     <li>Some agencies interpret “open” loosely or inconsistently.</li>
     <li>Political priorities and budget constraints undermine enforcement.</li>
     <li>Tools break, dashboards vanish, and metadata lags.</li>
   </ul>
+
   <p>When dashboards stop updating or links die, the damage is often quiet—but profound. This isn’t just technical neglect. It’s a form of civic decay.</p>
+
   <p>Lately, many of DOGE improvements have caused well established data trails to be underfunded or unfunded. It is these more recent changes that alter the future most significantly now.</p>
 
-  <h2>🧭 Why We Track</h2>
+  <h3>🧭 Why We Track</h3>
   <p>Inkwell Global Report watches these systems for signs of disruption. Are updates regular? Are APIs stable? Is metadata available and usable? Are links quietly going dark?</p>
   <p>We believe public data is public infrastructure. And we track it like the foundation it is.</p>
 
-  <h2>📚 Source Citations</h2>
+  <h3>📚 Source Citations</h3>
   <ul>
     <li>CDC<br>CDC Data & Statistics<br>Data Modernization Initiative</li>
     <li>Census Bureau<br>Census Data Tools<br>American Community Survey</li>
@@ -99,14 +105,4 @@ image: /assets/images/logo.jpg
     <li>USDA<br>USDA National Agricultural Statistics Service<br>USDA Economic Research Service</li>
     <li>Data.gov / Open Government<br>Data.gov About<br>Foundations for Evidence-Based Policymaking Act of 2018<br>Federal Data Strategy<br>OMB M-19-23: Phase 1 Implementation</li>
   </ul>
-</main>
-
-<div class="button-group" style="text-align: center; margin-top: 3rem;">
-  <p>
-    <a href="/services/" class="button-link">← Back to Services</a>
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="/contact/" class="button-link">Contact Us →</a>
-  </p>
-</div>  
-
-</main>
+</section>
