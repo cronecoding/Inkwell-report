@@ -157,7 +157,7 @@ app.layout = html.Div(
                     }
                 )
             ],
-            style={"textAlign": "center", "marginBottom": "40px"}
+            style={"textAlign": "center", "marginBottom": "40px"})
     ]
     )
 
