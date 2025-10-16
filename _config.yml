@@ -6,3 +6,4 @@ plugins:
   - jekyll-seo-tag
 author: Inkwell
 author_url: https://inkwell.report
+baseurl: ""
