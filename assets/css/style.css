@@ -884,30 +884,31 @@ footer {
     align-items: center;
     gap: 10px;
     margin: 30px auto;
-    max-width: 700px; /* Increased width for a bolder look */
-    width: 100%;
+    max-width: 700px !important; /* FORCED WIDTH FIX */
+    width: 100% !important;     /* FORCED WIDTH FIX */
 }
 
 .header-bot-form input {
     flex-grow: 1;
-    padding: 14px 20px; /* Increased padding */
-    font-size: 1.15rem; /* Slightly larger text */
-    border: 1px solid var(--gray-light); /* Softer, thinner border */
+    padding: 14px 20px;
+    font-size: 1.15rem;
+    border: 1px solid var(--gray-light);
     border-radius: 5px;
-    background-color: transparent; /* Makes the background transparent to blend with the hero overlay */
+    background-color: transparent;
     color: var(--white);
-    max-width: 80%; /* Input takes 80% of the form's max width */
+    max-width: 80% !important; /* FORCED WIDTH FIX */
+    /* Add this line if needed to override tiny padding: */
+    min-width: 250px; 
 }
 
 .header-bot-form input:focus {
     outline: none;
-    border-color: var(--green); /* Highlights with green on focus */
-    background-color: rgba(0, 0, 0, 0.4); /* Subtle dark background on focus */
+    border-color: var(--green);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .header-bot-form button {
-    /* Uses your Inkwell button styles */
-    padding: 14px 28px; /* Matching the input padding height */
+    padding: 14px 28px;
     background-color: var(--green);
     color: var(--black);
     border: none;
@@ -932,7 +933,5 @@ footer {
     }
     .header-bot-form input,
     .header-bot-form button {
-        width: 100%; 
-        max-width: 100%;
-    }
-}
+        width: 100% !important; /* FORCED WIDTH FIX */
+        max-width: 100% !important; /* FORCED WIDTH FIX */
