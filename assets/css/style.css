@@ -876,3 +876,61 @@ footer {
 .tag-list a.tag:hover {
   text-decoration: underline;
 }
+
+/* Bot styling */
+.header-bot-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 30px auto;
+    max-width: 600px; 
+    width: 100%;
+}
+
+.header-bot-form input {
+    flex-grow: 1;
+    padding: 12px 18px;
+    font-size: 1.1rem;
+    border: 2px solid var(--green);
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7); /* Blend with the hero background */
+    color: var(--white);
+    max-width: 85%;
+}
+
+.header-bot-form input:focus {
+    outline: none;
+    border-color: var(--white);
+}
+
+.header-bot-form button {
+    /* Uses your Inkwell button styles */
+    padding: 12px 25px;
+    background-color: var(--green);
+    color: var(--black);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header-bot-form button:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+/* Mobile stacking */
+@media (max-width: 600px) {
+    .header-bot-form {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .header-bot-form input,
+    .header-bot-form button {
+        width: 100%; 
+        max-width: 100%;
+    }
+}
