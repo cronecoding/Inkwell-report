@@ -884,29 +884,30 @@ footer {
     align-items: center;
     gap: 10px;
     margin: 30px auto;
-    max-width: 600px; 
+    max-width: 700px; /* Increased width for a bolder look */
     width: 100%;
 }
 
 .header-bot-form input {
     flex-grow: 1;
-    padding: 12px 18px;
-    font-size: 1.1rem;
-    border: 2px solid var(--green);
+    padding: 14px 20px; /* Increased padding */
+    font-size: 1.15rem; /* Slightly larger text */
+    border: 1px solid var(--gray-light); /* Softer, thinner border */
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.7); /* Blend with the hero background */
+    background-color: transparent; /* Makes the background transparent to blend with the hero overlay */
     color: var(--white);
-    max-width: 85%;
+    max-width: 80%; /* Input takes 80% of the form's max width */
 }
 
 .header-bot-form input:focus {
     outline: none;
-    border-color: var(--white);
+    border-color: var(--green); /* Highlights with green on focus */
+    background-color: rgba(0, 0, 0, 0.4); /* Subtle dark background on focus */
 }
 
 .header-bot-form button {
     /* Uses your Inkwell button styles */
-    padding: 12px 25px;
+    padding: 14px 28px; /* Matching the input padding height */
     background-color: var(--green);
     color: var(--black);
     border: none;
@@ -914,6 +915,7 @@ footer {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+    text-transform: uppercase;
 }
 
 .header-bot-form button:hover {
