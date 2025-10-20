@@ -892,7 +892,7 @@ footer {
     flex-grow: 1;
     padding: 14px 20px;
     font-size: 1.15rem;
-    border: 1px solid var(--gray-light);
+    border: 1px solid var(--white);
     border-radius: 5px;
     background-color: transparent;
     color: var(--white);
