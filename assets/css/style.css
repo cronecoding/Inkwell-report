@@ -926,6 +926,7 @@ footer {
 .header-bot-form input::placeholder {
     color: var(--white);
     opacity: 1;
+    font-style: italic;
 }
 
 /* Mobile stacking */
