@@ -897,7 +897,6 @@ footer {
     background-color: transparent;
     color: var(--white);
     max-width: 80% !important; /* FORCED WIDTH FIX */
-    /* Add this line if needed to override tiny padding: */
     min-width: 250px; 
 }
 
@@ -923,6 +922,10 @@ footer {
     background-color: var(--white);
     color: var(--black);
 }
+
+.header-bot-form input::placeholder {
+    color: var(--white);
+    opacity: 1;
 
 /* Mobile stacking */
 @media (max-width: 600px) {
