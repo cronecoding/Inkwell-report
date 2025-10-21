@@ -884,8 +884,8 @@ footer {
     align-items: center;
     gap: 10px;
     margin: 30px auto;
-    max-width: 700px !important; /* FORCED WIDTH FIX */
-    width: 100% !important;     /* FORCED WIDTH FIX */
+    max-width: 700px !important; 
+    width: 100% !important; 
 }
 
 .header-bot-form input {
@@ -896,7 +896,7 @@ footer {
     border-radius: 5px;
     background-color: transparent;
     color: var(--white);
-    max-width: 80% !important; /* FORCED WIDTH FIX */
+    max-width: 80% !important;
     min-width: 250px; 
 }
 
@@ -926,6 +926,7 @@ footer {
 .header-bot-form input::placeholder {
     color: var(--white);
     opacity: 1;
+}
 
 /* Mobile stacking */
 @media (max-width: 600px) {
@@ -936,5 +937,5 @@ footer {
     }
     .header-bot-form input,
     .header-bot-form button {
-        width: 100% !important; /* FORCED WIDTH FIX */
-        max-width: 100% !important; /* FORCED WIDTH FIX */
+        width: 100% !important; 
+        max-width: 100% !important; 
